@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/seeCompetitive.css">
+    <title>职池招聘</title>
+    <script>
+        function callAndroid(){
+            test.hello('调用了')
+        }
+    </script>
+</head>
+<body>
+    <div class="q-block1">
+        <div class="q-block1-score">
+            <div class="q-block1-left">
+                简历得分：
+                <span class="q-block1-num">10</span>
+            </div>
+            <div class="q-block1-right">
+                打败了
+                <span class="q-block1-proportion">0.00%</span>
+                的竞争者
+            </div>
+        </div>
+        <div class="q-block1-ts">
+            HR更青睐简历得分高的候选人哦~
+        </div>
+        <div class="q-block1-score-title">
+            <div class="q-block1-title">
+                <div class="q-block1-title-r-color"></div>
+                <div class="q-block1-title-text">5-60分</div>
+            </div>
+            <div class="q-block1-title">
+                <div class="q-block1-title-o-color"></div>
+                <div class="q-block1-title-text">60-80分</div>
+            </div>
+            <div class="q-block1-title">
+                <div class="q-block1-title-g-color"></div>
+                <div class="q-block1-title-text">80-100分</div>
+            </div>
+        </div>
+        <div class="q-block1-number">
+            <div class="q-block1-hear">我在这儿
+                <div class="q-san"></div>
+            </div>
+            <div class="q-block1-stage">
+                <div class="q-block1-stage1">
+                    <div class="q-block1-stage1-co"></div>
+                    <div class="q-block1-stage1-text"></div>
+                </div>
+                <div class="q-block1-stage2">
+                    <div class="q-block1-stage2-co"></div>
+                    <div class="q-block1-stage2-text"></div>
+                </div>
+                <div class="q-block1-stage3">
+                    <div class="q-block1-stage3-co"></div>
+                    <div class="q-block1-stage3-text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="q-block1-btn" onclick="callAndroid()">
+            马上去提高简历得分
+        </div>
+    </div>
+    <div class="q-division"></div>
+    <div class="q-block2">
+        <div class="q-exp">工作经验</div>
+        <div class="q-Years">
+            该职位工作年限要求：
+            <span>经验不限</span>
+        </div>
+        <div class="q-block1-hear1">我在这儿
+            <div class="q-san1"></div>
+        </div>
+        <div id="q-experience" style="width: 100%; height: 170px;">
+
+        </div>
+    </div>
+    <div class="q-division"></div>
+
+    <div class="q-block3">
+        <div class="q-exp">学历</div>
+        <div class="q-Years">
+            该职位学历要求：
+            <span>大专</span>
+        </div>
+        <div class="q-block1-hear2">我在这儿
+            <div class="q-san1"></div>
+        </div>
+        <div id="q-edu" style="width: 100%; height: 170px;">
+
+        </div>
+    </div>
+    <div class="q-division"></div>
+
+    <div class="q-block4">
+        <div class="q-exp">年龄</div>
+        <div class="q-Years">
+            该职位年龄要求：
+            <span>20~35岁</span>
+        </div>
+        <div class="q-block1-hear3">我在这儿
+            <div class="q-san1"></div>
+        </div>
+        <div id="q-age" style="width: 100%; height: 170px;">
+
+        </div>
+    </div>
+    <div class="q-division"></div>
+
+    
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/seeCompetitive.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <script>
+        document.getElementsByClassName('q-block1-btn')[0].addEventListener('click',function(){
+            console.log(1)
+            wx.miniProgram.reLaunch({url:'/pages/person/person'})
+        })
+    </script>
+</body>
+</html>

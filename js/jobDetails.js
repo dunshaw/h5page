@@ -1,0 +1,421 @@
+let str = location.search.split('?id=')[1]
+const index = str.search(/&/)
+let id = ''
+// 有&，判断qq浏览器在地址后面添加参数
+if (index) {
+    id = str.slice(0, 19)
+}
+// 正常浏览器
+else {
+    id = str
+}
+
+const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
+const _URL = 'https://tiger.quanjikj.com'; //服务器地址
+
+$('.q-top-back').click(function () {
+    history.back()
+})
+$('.q-top-fx').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-top-bg').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-competitivePower').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-successsee').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-gongsiSituation').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-publisher').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-position-box').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+$('.q-bottom-btn').click(function () {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        alert('苹果客户端暂未开放，敬请期待！')
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+})
+
+// 动态设置banner高度
+console.log($('.q-top-bg').height())
+$('.q-top-bigbox').css('height', $('.q-top-bg').height());
+$(window).resize(function () {
+    $('.q-top-bigbox').css('height', $('.q-top-bg').height());
+})
+
+var job = '';
+var company = '';
+var labels = [];
+var requirements = '';
+var publisher = '';
+var similarJobList = [];
+$.ajax({
+    url:  '/api/job/get',
+    type: 'get',
+    data: { id: id },
+    success: function (res) {
+        let a = res.body.job
+        if (a.workingTime) {
+            let am = a.workingTime.split(' ')[1].substring(0, 5);
+            let pm = a.offWorkingTime.split(' ')[1].substring(0, 5);
+            a.workingTime = am + ' - ' + pm;
+        }
+        switch (a.education) {
+            case 'no':
+                a['xueliyaoqiu'] = "不限";
+                break;
+            case 'primary':
+                a['xueliyaoqiu'] = "小学";
+                break;
+            case 'juniorHigh':
+                a['xueliyaoqiu'] = "初中";
+                break;
+            case 'high':
+                a['xueliyaoqiu'] = "高中";
+                break;
+            case 'technicalSecondary':
+                a['xueliyaoqiu'] = "中专";
+                break;
+            case 'juniorCollege':
+                a['xueliyaoqiu'] = "大专";
+                break;
+            case 'regularCollege':
+                a['xueliyaoqiu'] = "本科";
+                break;
+            case 'master':
+                a['xueliyaoqiu'] = "硕士";
+                break;
+            case 'doctor':
+                a['xueliyaoqiu'] = "博士";
+                break;
+        }
+        switch (a.workingYears) {
+            case 'no':
+                a['gongzuonianxian'] = "经验不限";
+                break;
+            case 'ltOneYears':
+                a['gongzuonianxian'] = "1年以内";
+                break;
+            case 'geOneYears':
+                a['gongzuonianxian'] = "1年以上";
+                break;
+            case 'betweenOneAndTwoYears':
+                a['gongzuonianxian'] = "1-2年";
+                break;
+            case 'geTwoYears':
+                a['gongzuonianxian'] = "2年以上";
+                break;
+            case 'betweenTwoAndThreeYears':
+                a['gongzuonianxian'] = "2-3年";
+                break;
+            case 'betweenThreeAndFiveYears':
+                a['gongzuonianxian'] = "3-5年";
+                break;
+            case 'geFiveYears':
+                a['gongzuonianxian'] = "5年以上";
+                break;
+        }
+        switch (a.siesta) {
+            case 'min30':
+                a['wuxiu'] = "30分钟";
+                break;
+            case 'min45':
+                a['wuxiu'] = "45分钟";
+                break;
+            case 'hours1':
+                a['wuxiu'] = "1个小时";
+                break;
+            case 'hours2':
+                a['wuxiu'] = "2个小时";
+                break;
+            case 'unfixed':
+                a['wuxiu'] = "不定";
+                break;
+            case 'no':
+                a['wuxiu'] = "无";
+                break;
+        }
+
+        if (a.interviewTime != null) {
+            let str = "周";
+            let date = new Date(a.interviewTime);
+            let week = date.getDay();
+            switch (week) {
+                case 0:
+                    str += "日";
+                    break;
+                case 1:
+                    str += "一";
+                    break;
+                case 2:
+                    str += "二";
+                    break;
+                case 3:
+                    str += "三";
+                    break;
+                case 4:
+                    str += "四";
+                    break;
+                case 5:
+                    str += "五";
+                    break;
+                case 6:
+                    str += "六";
+                    break;
+            }
+            a["mianshishijian"] = date.getMonth() + 1 + "月" + date.getDate() + "日(" + str + ") " + date.getHours() + ":" + date.getMinutes();
+        } else {
+            a["mianshishijian"] = '等待面试通知'
+        }
+        for (let i in res.body.similarJobList) {
+            let b = res.body.similarJobList[i];
+            switch (b.education) {
+                case 'no':
+                    b['xueliyaoqiu'] = "不限";
+                    break;
+                case 'primary':
+                    b['xueliyaoqiu'] = "小学";
+                    break;
+                case 'juniorHigh':
+                    b['xueliyaoqiu'] = "初中";
+                    break;
+                case 'high':
+                    b['xueliyaoqiu'] = "高中";
+                    break;
+                case 'technicalSecondary':
+                    b['xueliyaoqiu'] = "中专";
+                    break;
+                case 'juniorCollege':
+                    b['xueliyaoqiu'] = "大专";
+                    break;
+                case 'regularCollege':
+                    b['xueliyaoqiu'] = "本科";
+                    break;
+                case 'master':
+                    b['xueliyaoqiu'] = "硕士";
+                    break;
+                case 'doctor':
+                    b['xueliyaoqiu'] = "博士";
+                    break;
+            }
+            switch (b.workingYears) {
+                case 'no':
+                    b['gongzuonianxian'] = "经验不限";
+                    break;
+                case 'ltOneYears':
+                    b['gongzuonianxian'] = "1年以内";
+                    break;
+                case 'geOneYears':
+                    b['gongzuonianxian'] = "1年以上";
+                    break;
+                case 'betweenOneAndTwoYears':
+                    b['gongzuonianxian'] = "1-2年";
+                    break;
+                case 'geTwoYears':
+                    b['gongzuonianxian'] = "2年以上";
+                    break;
+                case 'betweenTwoAndThreeYears':
+                    b['gongzuonianxian'] = "2-3年";
+                    break;
+                case 'betweenThreeAndFiveYears':
+                    b['gongzuonianxian'] = "3-5年";
+                    break;
+                case 'geFiveYears':
+                    b['gongzuonianxian'] = "5年以上";
+                    break;
+            }
+            if (b.interviewTime != null) {
+                b["mianshishijian"] = b.interviewTime
+            } else {
+                b["mianshishijian"] = '待定'
+            }
+            if (b.labels != null) {
+                b.labels = b.labels.split(",");
+            } else {
+                b.labels = [];
+            }
+        }
+        job = a;
+        company = res.body.company;
+        labels = res.body.labels;
+        requirements = res.body.requirements;
+        publisher = res.body.publisher;
+        similarJobList = res.body.similarJobList;
+        $('.q-jobTitle').html(job.name);
+        $('.q-jobaddress').html(job.area);
+        $('.q-educational').html(job.xueliyaoqiu);
+        $('.q-w-year').html(job.gongzuonianxian);
+        $('.q-salary').html(`${job.salaryMin / 1000}K~${job.salaryMax / 1000}k`);
+        $('.q-applynum').html(job.applyNumber);
+        $('.q-Interviewtime-content').html(job.mianshishijian);
+        $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
+        $('.q-workadd').html(job.workingAddress + job.supplementAddress)
+        $('.q-km').html(job.distance)
+        $('.q-incomenum').html(job.salaryMin + '-' + job.salaryMax)
+        $('.q-jibengongzi').html(job.baseSalaryMin + '-' + job.baseSalaryMax)
+        $('.q-jixiaogongzi').html(job.performanceMin + '-' + job.performanceMax)
+        $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
+        $('.q-jiaban').html(job.overtimeSalaryMin + '-' + job.overtimeSalaryMax)
+        $('.q-qita').html(job.otherSalaryMin + '-' + job.otherSalaryMax)
+        $('.q-quanqin').html(job.attendanceBonus)
+        $('.q-income-supplement').html(job.salaryDescription)
+
+        if (labels) {
+            for (let i = 0; i < labels.length; i++) {
+                if (labels[i].type == 'welfare') {
+                    $('.q-welfare').html(`<span class="q-welfareLabel">${labels[i].text}</span>`)
+                }
+                if (labels[i].type == 'workingTime') {
+                    $('.q-workwelfare').html(`<span class="q-welfareLabel">${labels[i].text}</span>`)
+                }
+                if (labels[i].type == 'jobDuty') {
+                    $('.q-fl1').html(`<span class="q-welfareLabel">${labels[i].text}</span>`)
+                }
+                if (labels[i].type == 'require') {
+                    $('.q-fl2').html(`<span class="q-welfareLabel">${labels[i].text}</span>`)
+                }
+            }
+        }
+        $('.q-tSupplement').html(job.companyWelfare)
+        $('.q-worksupplement').html(job.workingTimeDesc)
+        $('.q-operatingDuty').html(job.jobDuty)
+        $('.q-recruitconten').html(job.jobRequire)
+        $('.q-gsAbbreviation').html(company.alias)
+        $('.q-name span').html(company.name)
+        $('.q-gsregion').html(company.city)
+        $('.q-scale').html(company.scaleName)
+        $('.q-hy').html(company.industryName)
+        // $('.q-r-edu').html(requirements.educationRequirement)
+        // $('.q-r-age').html(requirements.ageRequirement)
+        // $('.q-r-exp').html(requirements.workExperienceRequirement)
+        $('.q-p-name').html(publisher.name)
+        $('.q-active').html(publisher.lastActive)
+        $('.q-p-position').html(publisher.position)
+
+        if (res.body.companyLogo.sourcePath) {
+            $('.q-gongsitouxiang').attr('src', imgIp + res.body.companyLogo.sourcePath)
+        }
+        if (res.body.publisher.avatar) {
+            $('.q-p-touxiang').attr('src', imgIp + res.body.publisher.avatar)
+        }
+        for (let i = 0; i < similarJobList.length; i++) {
+            $('.q-position-box').html(`
+                <div class="q-positiondetails">
+                    <div class="q-position-name">${similarJobList[i].name}</div>
+                    <div class="q-position-Situation">
+                        <span class="q-position-region">${similarJobList[i].areaName}</span>
+                        <span class="q-position-years">${similarJobList[i].gongzuonianxian}</span>
+                        <span class="q-position-edu">${similarJobList[i].xueliyaoqiu}</span>
+                        <span>距离 <span>${similarJobList[i].distance}</span> 公里</span>
+                    </div>
+                    <div class="q-position-fl">
+                        <span class="q-position-label">五险一金</span>
+                    </div>
+                    <div>
+                        <span class="q-interview-t">面试时间：</span>
+                        <span class="q-interview-t-content">${similarJobList[i].mianshishijian}</span>
+                    </div>
+                </div>
+                <div class="q-interview-right">
+                    <div class="q-interview-right-xz">${similarJobList[i].salaryMin / 1000}k-${similarJobList[i].salaryMax / 1000}k</div>
+                    <div class="q-interview-right-ren">
+                        已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
+                    </div>
+                </div>
+                `)
+            for (let i = 0; i < similarJobList[i].labels.length; i++) {
+                $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
+            }
+        }
+
+    }
+})
+
+//判断当前设备是安卓还是ios
+function detect() {
+    var equipmentType = "";
+    var agent = navigator.userAgent.toLowerCase();
+    var android = agent.indexOf("android");
+    var iphone = agent.indexOf("iphone");
+    var ipad = agent.indexOf("ipad");
+    var win = agent.indexOf("windows");
+    if (android != -1) {
+        equipmentType = "android";
+    }
+    if (iphone != -1 || ipad != -1) {
+        equipmentType = "ios";
+    }
+    if (win != -1) {
+        equipmentType = "windows";
+    }
+    return equipmentType;
+}

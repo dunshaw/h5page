@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.q-box{
+   margin: 0 auto;
+   text-align: center;
+}
+img{
+    width: 100px;
+    height: 100px;
+    margin: 50px auto 0;
+    display: inline-block;
+}
+.q-title{
+    font-size:16px;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:22px;
+    margin: 30px auto;
+}
+.q-text{
+    font-size:14px;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height:22px;
+    margin: 13px 20px 0;
+}
+.q-ylogin{
+    height: 44px;
+    margin: 64px 30px 0;
+    background:rgba(46,167,224,1);
+    border-radius:4px;
+    font-size:16px;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:44px;
+}
+.q-nlogin{
+    margin: 20px 30px 0;
+    border-radius:4px;
+    font-size:16px;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height:23px;
+}

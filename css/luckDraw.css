@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+.q-bigbox{
+    width: 100%;
+    height: auto;
+    background: url('../images/bg.png') no-repeat left top;
+    background-size: 100%;
+    overflow: hidden;
+}
+.q-top-h2{
+    width: 240px;
+    height: 34px;
+    margin: 10px auto 0;
+}
+.q-top-h2 img,.q-top-title img{
+    width: 100%;
+}
+.q-top-title{
+    width: 195px;
+    height: 47px;
+    margin: 10px auto 0;
+}
+.q-top-current{
+    width:160px;
+    height:29px;
+    font-size:14px;
+    font-family:PingFang;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    background:rgba(48,129,210,1);
+    border:2px solid rgba(63,181,243,1);
+    border-radius:15px;
+    margin: 13px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.q-choujiangqu-box{
+    margin: 20px 26px 0;
+    background: url('../images/choujiangqu.png') no-repeat; 
+    background-size: 100%;
+    overflow: hidden;
+}
+.q-choujiangqu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 15px 20px 15px;
+}
+.q-choujiangqu li{
+    width: 32%;
+    height: 85px;
+    background:rgba(252,255,250,1);
+    border-radius:9px;
+    /* flex-shrink:0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.q-choujiangqu li img{
+    width: 50px;
+    height: 50px;
+}
+.q-choujiangqu li span{
+    font-size:12px;
+    font-family:PingFang;
+    font-weight:bold;
+    color:rgba(153,153,153,1);
+    line-height:38px;
+}
+.q-choujiang-column{
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-around;
+}
+.q-choujiang-column img{
+    width: 16px;
+    height: 48px;
+}
+#q-choujiang-btn{
+    background:rgba(253,180,103,1);
+    box-shadow:0px 0px 5px 0px rgba(254,217,139,1);
+    border-radius:9px;
+    font-size: 24px;
+    font-family:PingFang;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    /* line-height:36px; */
+}
+#q-active{
+    background: rgba(189,241,255,1);
+}
+#q-choujiang-btn span{
+    font-size:10px;
+    font-weight:400;
+    color:rgba(242,110,0,1);
+}
+.q-zhongjiangqu-box{
+    height: 100%;
+    margin: 0 26px;
+    background: url('../images/zhongjiangqu.png') no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+.q-zhongjiangqu-title{
+    width: 167px;
+    height: 30px;
+    background: url('../images/juxing.png') no-repeat;
+    background-size: 100%;
+    margin: 29px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.q-zhongjiangqu-title span{
+    margin: 0 15px;
+    font-size:16px;
+    font-family:PingFang;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:37px;
+}
+.q-zhongjiangqu-title img{
+    width: 8px;
+    height: 8px;
+}
+.q-zhanshi-box{
+    overflow: hidden;
+}
+.q-zhongjiang-conten{
+    height: 120px;
+    margin: 19px 0 60px 26px;
+    font-size:12px;
+    font-family:PingFang;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:20px;
+    position: relative;
+    overflow: hidden;
+}
+.q-zhongjiang-conten p{
+    animation: zhongjiang 5s linear infinite;
+}
+@keyframes zhongjiang {
+    0% {
+        transform: translateY(0)
+    }
+    20% {
+        transform: translateY(-20px)
+    }
+    40% {
+        transform: translateY(-45px)
+    }
+    60% {
+        transform: translateY(-70px)
+    }
+    80% {
+        transform: translateY(-95px)
+    }
+    100% {
+        transform: translateY(-120px)
+    }
+}
+
+.q-dialog{
+    display: none;
+    width: 200px;
+    height: 100px;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-100px);
+    z-index: 9;
+}
+.q-dialog-content,.q-dialog-btn{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.q-dialog-btn{
+    border-top: 1px solid black;
+    height: 40px;
+    font-size: 14px;
+}
+.q-zhe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    background: rgba(190, 190, 190, 0.562);
+    display: none;
+}

@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 210px;
+}
+
+.swiper-slide {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    /* position: absolute;
+    left: -50%; */
+}
+
+.q-block2 {
+    margin: 20px 40px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-block2-job {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.q-block2-job img {
+    width: 37px;
+    height: 37px;
+}
+
+.q-block2-job span {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 20px;
+}
+
+.q-block3-h1 {
+    margin: 29px 16px 20px;
+    font-size: 18px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 20px;
+}
+
+.q-block3-contentbox {
+    margin: 0 15px 20px;
+    background: url('../images/hotbg.png') no-repeat;
+    background-size: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.q-block3-content1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.q-block3-cbox {
+    background: rgba(0, 0, 0, .65);
+    border-radius: 0px 2px 2px 0px;
+}
+
+.q-block3-t {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(255, 150, 30, 1);
+    line-height: 20px;
+    background-color: rgba(0, 0, 0, .65);
+    padding: 2px 4px;
+}
+
+.q-block3-c {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 20px;
+    background-color: rgba(0, 0, 0, .65);
+    padding: 2px 4px;
+    border-radius: 0px 2px 2px 0px;
+    position: relative;
+    left: 100%;
+}
+
+.q-block3-content2 {
+    margin: 5px 36px 0 80px;
+    background: rgba(0, 0, 0, .65);
+    border-radius: 2px;
+}
+
+.q-block3-content3 {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-block3-content4 {
+    margin: 5px 177px 74px 5px;
+    background: rgba(0, 0, 0, .65);
+    border-radius: 2px;
+}
+
+.q-block-fen {
+    width: 100%;
+    height: 10px;
+    background: rgba(245, 245, 245, 1);
+}
+
+.q-block4 {
+    margin: 20px 15px 10px;
+}
+
+.q-block4-titleshe {
+    font-size: 18px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(46, 167, 224, 1);
+    line-height: 20px;
+}
+
+.q-block4-titlesee {
+    margin-left: 20px;
+    font-size: 16px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 20px;
+}
+
+.q-block4-msgtop {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-block4-msgtop-left {
+    display: flex;
+}
+
+.q-block4-msgtop-left img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.q-block4-msgtop-leftuser {
+    margin-left: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.q-block4-msgtop-username {
+    font-size: 16px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 35px;
+}
+
+.q-block4-msgtop-onlinetime {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 20px;
+}
+
+.q-block4-msgtop-right img {
+    width: 11px;
+    height: 14px;
+}
+
+.q-block4-msgtop-right span {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(255, 76, 76, 1);
+    line-height: 35px;
+}
+
+.q-block4-msgcontent {
+    margin: 15px 0 15px 51px;
+    display: flex;
+    flex-direction: column;
+}
+
+.q-block4-msgcontent-text {
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 20px;
+}
+
+.q-block4-msgcontent-photos {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    margin: 20px 0 15px;
+}
+
+.q-block4-msgcontent-photos img {
+    flex-shrink: 0;
+    width: 95px;
+    height: 95px;
+    margin: 0 3px 3px 0;
+}
+
+.q-block4-msgcontent-photos-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-block4-distance {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 20px;
+}
+
+.q-block4-faandcom {
+    display: flex;
+}
+
+.q-block4-faandcom-left img {
+    width: 15px;
+    height: 15px;
+}
+
+.q-block4-faandcom-left span {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 20px;
+}
+
+.q-block4-faandcom-right {
+    margin-left: 30px;
+}
+
+.q-block4-faandcom-right img {
+    width: 14px;
+    height: 14px;
+}
+
+.q-block4-faandcom-right span {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 20px;
+}
+
+.q-block4-comment {
+    margin-top: 20px;
+    max-height: 135px;
+    background: rgba(248, 248, 248, 1);
+    padding-bottom: 10px;
+    margin-left: 51px;
+}
+
+.q-block4-comment1 {
+    margin: 10px 20px 0 11px;
+    padding-top: 5px;
+}
+
+.q-block4-comment-user {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 20px;
+}
+
+.q-block4-comment-text {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #999999;
+    line-height: 20px;
+}
+
+.q-block4-comment2,
+.q-block4-comment3 {
+    margin: 0 20px 0 10px;
+}
+
+.q-block4-seeall {
+    margin-left: 51px;
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(46, 167, 224, 1);
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.q-block-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(221, 221, 221, 1);
+}
+
+.q-block-line:last-child {
+    margin-bottom: 68px;
+}
+
+.q-bottom {
+    position: fixed;
+    bottom: 0;
+    background: #FFFFFF;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.q-bottom-tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.q-bottom-tab img {
+    width: 22px;
+    height: 22px;
+}
+
+.q-bottom-tab span {
+    font-size: 10px;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    line-height: 35px;
+}
