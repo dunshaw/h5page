@@ -1,7 +1,11 @@
 const _URL = 'https://tiger.quanjikj.com'; //服务器地址
 const exp = /^1\d{10}$/;   //手机号正则
 var str = location.search.split('?')[1];
-var relationId = str.split('&')[0].split('=')[1];
+// var relationId = str.split('&')[0].split('=')[1];
+var relationId = getQueryArgs().relationId
+var jobId = getQueryArgs().id
+// var interviewTime = getQueryArgs().interviewTime
+
 var type = str.split('&')[1].split('=')[1];
 
 //获取手机屏幕高度
@@ -37,16 +41,16 @@ $('.q-bottom button').click(function () {
             data: {
                 relationId: relationId,
                 type: type,
-                phone: $('.q-bottom input').val()
+                phone: $('.q-bottom input').val(),
+                jobId: jobId,
+                interviewTime:''
             },
             success: function (res) {
                 if (res.code == 200) {
                     let aAndI = detect()
-                    if (aAndI == 'android') {
+                    if (aAndI == 'android' || aAndI =='ios') {
                         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-                    } else if (aAndI == 'ios') {
-                        alert('苹果客户端暂未开放，敬请期待！')
-                    } else {
+                    }else {
                         alert('请在移动端打开该网页')
                         return
                     }
@@ -60,3 +64,27 @@ $('.q-bottom button').click(function () {
         alert('手机号错误')
     }
 })
+
+function getQueryArgs() {
+    var url = location.search;
+    var qs = (url.length > 0 ? url.substring(url.indexOf('?')).substr(1) : ''),
+      //保存每一项
+      args = {},
+      //得到每一项
+      items = qs.length ? qs.split('&') : [],
+      item = null,
+      name = null,
+      value = null,
+      i = 0,
+      len = items.length;
+
+    for (i = 0; i < len; i++) {
+      item = items[i].split('='),
+        name = decodeURIComponent(item[0])
+      value = decodeURIComponent(item[1])
+      if (name.length) {
+        args[name] = value;
+      }
+    }
+    return args;
+  }

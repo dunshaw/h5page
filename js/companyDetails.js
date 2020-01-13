@@ -1,4 +1,14 @@
-const id = location.search.split('?')[1].split('=')[1]
+let str = location.search.split('?id=')[1]
+const index = str.search(/&/)
+let id = ''
+// 有&，判断IOS浏览器在地址后面添加参数
+if (index) {
+    id = str.slice(0, 19)
+}
+// 正常浏览器
+else {
+    id = str
+}
 const _URL = 'https://tiger.quanjikj.com'; //服务器地址
 const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
 
