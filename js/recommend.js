@@ -1,7 +1,7 @@
 const exp = /^1\d{10}$/;   //手机号正则
 const _URL = 'https://tiger.quanjikj.com'; //服务器地址
-var referrerUserId = location.search.split('?')[1].split('=')[1]
-
+var referrerUserId = location.search.split('?')[1].split('&')[0].split('=')[1]
+console.log(referrerUserId)
 var h = window.screen.height;
 $('.q-elastic-bg').css('height', h)
 
