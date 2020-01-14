@@ -45,8 +45,7 @@
 }
 .q-bottom input::-webkit-input-placeholder{
     text-align: center;
-    font-size:16px;
-    font-family:PingFang SC;
+    font-size:12px;
     font-weight:400;
     color:rgba(204,204,204,1);
 }
