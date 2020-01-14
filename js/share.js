@@ -46,16 +46,17 @@ $('.q-bottom button').click(function () {
                 interviewTime:''
             },
             success: function (res) {
-                if (res.code == 200) {
-                    let aAndI = detect()
-                    if (aAndI == 'android' || aAndI =='ios') {
-                        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-                    }else {
-                        alert('请在移动端打开该网页')
-                        return
-                    }
-                } else {
-                    alert(res.msg)
+                console.log(res)
+                let aAndI = detect()
+                console.log(aAndI)
+                if (aAndI == 'android') {
+                    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                }else if(aAndI =='ios'){
+                    window.open('https://apps.apple.com/cn/app/id1485685440')
+                }
+                else {
+                    alert('请在移动端打开该网页')
+                    return
                 }
             }
         })
