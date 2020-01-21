@@ -50,9 +50,12 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  $('#links').attr('href','https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  $('#links').click()
                 }else if(aAndI =='ios'){
-                    window.open('https://apps.apple.com/cn/app/id1485685440')
+                  // window.location.href = 'https://apps.apple.com/cn/app/id1485685440'
+                  $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+                  $('#links').click()
                 }
                 else {
                     alert('请在移动端打开该网页')
