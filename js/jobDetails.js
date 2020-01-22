@@ -418,7 +418,7 @@ $.ajax({
                     </div>
                 </div>
                 <div class="q-interview-right">
-                    <div class="q-interview-right-xz">${(similarJobList[i].salaryMin / 1000).toFixed(1)}k-${(similarJobList[i].salaryMax / 1000).toFixed(1)}k</div>
+                    <div class="q-interview-right-xz">${((similarJobList[i].salaryMin) / 1000).toFixed(1)}k-${((similarJobList[i].salaryMax) / 1000).toFixed(1)}k</div>
                     <div class="q-interview-right-ren">
                         已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
                     </div>
