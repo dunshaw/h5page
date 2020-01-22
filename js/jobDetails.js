@@ -21,7 +21,9 @@ $('.q-top-fx').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -32,7 +34,9 @@ $('.q-top-bg').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -43,7 +47,9 @@ $('.q-competitivePower').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -54,7 +60,9 @@ $('.q-successsee').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -65,7 +73,9 @@ $('.q-gongsiSituation').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -76,7 +86,9 @@ $('.q-publisher').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -87,7 +99,9 @@ $('.q-position-box').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -98,7 +112,9 @@ $('.q-bottom-btn').click(function () {
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
-        alert('苹果客户端暂未开放，敬请期待！')
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
     } else {
         alert('请在移动端打开该网页')
         return
@@ -315,7 +331,7 @@ $.ajax({
         $('.q-jobaddress').html(job.area);
         $('.q-educational').html(job.xueliyaoqiu);
         $('.q-w-year').html(job.gongzuonianxian);
-        $('.q-salary').html(`${job.salaryMin / 1000}K~${job.salaryMax / 1000}k`);
+        $('.q-salary').html(`${(job.salaryMin / 1000).toFixed(1)}K~${(job.salaryMax / 1000).toFixed(1)}K`);
         $('.q-applynum').html(job.applyNumber);
         $('.q-Interviewtime-content').html(job.mianshishijian);
         $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
@@ -323,10 +339,25 @@ $.ajax({
         $('.q-km').html(job.distance)
         $('.q-incomenum').html(job.salaryMin + '-' + job.salaryMax)
         $('.q-jibengongzi').html(job.baseSalaryMin + '-' + job.baseSalaryMax)
+        if(job.baseSalaryMin==0&&job.baseSalaryMax==0){
+            $('.q-jibengongzi').parent().hide()
+        }
         $('.q-jixiaogongzi').html(job.performanceMin + '-' + job.performanceMax)
+        if(job.performanceMin==0&&job.performanceMax==0){
+            $('.q-jixiaogongzi').parent().hide()
+        }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
+        if(job.subsidyMin==0&&job.subsidyMax==0){
+            $('.q-butie').parent().hide()
+        }
         $('.q-jiaban').html(job.overtimeSalaryMin + '-' + job.overtimeSalaryMax)
+        if(job.overtimeSalaryMin==0&&job.overtimeSalaryMax==0){
+            $('.q-jiaban').parent().hide()
+        }
         $('.q-qita').html(job.otherSalaryMin + '-' + job.otherSalaryMax)
+        if(job.otherSalaryMin==0&&job.otherSalaryMax==0){
+            $('.q-qita').parent().hide()
+        }
         $('.q-quanqin').html(job.attendanceBonus)
         $('.q-income-supplement').html(job.salaryDescription)
 
@@ -387,7 +418,7 @@ $.ajax({
                     </div>
                 </div>
                 <div class="q-interview-right">
-                    <div class="q-interview-right-xz">${similarJobList[i].salaryMin / 1000}k-${similarJobList[i].salaryMax / 1000}k</div>
+                    <div class="q-interview-right-xz">${(similarJobList[i].salaryMin / 1000).toFixed(1)}k-${(similarJobList[i].salaryMax / 1000).toFixed(1)}k</div>
                     <div class="q-interview-right-ren">
                         已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
                     </div>
