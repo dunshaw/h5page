@@ -123,6 +123,7 @@ $.ajax({
     type: 'get',
     data: { id: id },
     success: function (res) {
+        console.log(res)
         let a = res.body.job
         if (a.workingTime) {
             let am = a.workingTime.split(' ')[1].substring(0, 5);
