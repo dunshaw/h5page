@@ -1,4 +1,6 @@
-
+setTimeout(()=>{
+    window.location.reload()
+},100)
 let str = location.search.split('?id=')[1]
 const index = str.search(/&/)
 let id = ''
@@ -37,6 +39,19 @@ $('.q-top-fx').click(function () {
         return
     }
 })
+$('.q-btn-sq').click(function() {
+    let aAndI = detect()
+    if (aAndI == 'android') {
+        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+    } else if (aAndI == 'ios') {
+        // alert('苹果客户端暂未开放，敬请期待！')
+        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
+        $('#links').click()
+    } else {
+        alert('请在移动端打开该网页')
+        return
+    }
+});
 $('.q-top-bg').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
@@ -356,6 +371,9 @@ $.ajax({
         }
         if(job.type=='online'){
             $('#mianshidizhi').hide()
+        }
+        if(job.type=='scene'){
+            $('.q-workingAddress').hide()
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){
