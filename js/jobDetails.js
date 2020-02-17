@@ -401,7 +401,7 @@ $.ajax({
         // $('.q-r-edu').html(requirements.educationRequirement)
         // $('.q-r-age').html(requirements.ageRequirement)
         // $('.q-r-exp').html(requirements.workExperienceRequirement)
-        if(publisher){
+        if(publisher && job.type=='online'){
             $('.q-p-name').html(publisher.name)
             $('.q-active').html(publisher.lastActive)
             $('.q-p-position').html(publisher.position)
