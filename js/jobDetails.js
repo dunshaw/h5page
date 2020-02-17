@@ -410,8 +410,9 @@ $.ajax({
         }
         if(similarJobList.length!=0){
             $('#xiangsizhiwei').show()
+            let _html=''
             for (let i = 0; i < similarJobList.length; i++) {
-                $('.q-position-box').html(`
+                _html += `
                     <div class="q-positiondetails">
                         <div class="q-position-name">${similarJobList[i].name}</div>
                         <div class="q-position-Situation">
@@ -434,11 +435,12 @@ $.ajax({
                             已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
                         </div>
                     </div>
-                    `)
+                    `
                 for (let i = 0; i < similarJobList[i].labels.length; i++) {
                     $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
                 }
             }
+            $('.q-position-box').html(_html)
         }
     }
 })
