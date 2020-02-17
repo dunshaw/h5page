@@ -10,8 +10,8 @@ else {
     id = str
 }
 
-const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
+const imgIp = 'https://img.jobpoolhr.com/'   // 图片服务器地址
+const _URL = 'https://app.jobpoolhr.com/'; //服务器地址
 
 $('.q-top-back').click(function () {
     history.back()
@@ -333,7 +333,7 @@ $.ajax({
         $('.q-w-year').html(job.gongzuonianxian);
         $('.q-salary').html(`${(job.salaryMin / 1000).toFixed(1)}K~${(job.salaryMax / 1000).toFixed(1)}K`);
         $('.q-applynum').html(job.applyNumber);
-        $('.q-Interviewtime-content').html(job.mianshishijian);
+        $('.q-Interviewtime-content').html(job.interviewTimeString);
         $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
         $('.q-workadd').html(job.workingAddress + job.supplementAddress)
         $('.q-km').html(job.distance)
@@ -345,6 +345,9 @@ $.ajax({
         $('.q-jixiaogongzi').html(job.performanceMin + '-' + job.performanceMax)
         if(job.performanceMin==0&&job.performanceMax==0){
             $('.q-jixiaogongzi').parent().hide()
+        }
+        if(job.type=='online'){
+            ${'#mianshidizhi'}.hide()
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){
@@ -358,7 +361,10 @@ $.ajax({
         if(job.otherSalaryMin==0&&job.otherSalaryMax==0){
             $('.q-qita').parent().hide()
         }
-        $('.q-quanqin').html(job.attendanceBonus)
+        $('.q-quanqin').html(job.attendanceBonusMin + '-' + job.attendanceBonusMax)
+        if(job.attendanceBonusMin==0&&job.attendanceBonusMax==0){
+            $('.q-quanqin').parent().hide()
+        }
         $('.q-income-supplement').html(job.salaryDescription)
 
         if (labels) {
@@ -389,46 +395,51 @@ $.ajax({
         // $('.q-r-edu').html(requirements.educationRequirement)
         // $('.q-r-age').html(requirements.ageRequirement)
         // $('.q-r-exp').html(requirements.workExperienceRequirement)
-        $('.q-p-name').html(publisher.name)
-        $('.q-active').html(publisher.lastActive)
-        $('.q-p-position').html(publisher.position)
-
+        if(publisher){
+            $('.q-p-name').html(publisher.name)
+            $('.q-active').html(publisher.lastActive)
+            $('.q-p-position').html(publisher.position)
+            $('#zhiweifabuzhe').show()
+        }
+        
         if (res.body.companyLogo.sourcePath) {
             $('.q-gongsitouxiang').attr('src', imgIp + res.body.companyLogo.sourcePath)
         }
         if (res.body.publisher.avatar) {
             $('.q-p-touxiang').attr('src', imgIp + res.body.publisher.avatar)
         }
-        for (let i = 0; i < similarJobList.length; i++) {
-            $('.q-position-box').html(`
-                <div class="q-positiondetails">
-                    <div class="q-position-name">${similarJobList[i].name}</div>
-                    <div class="q-position-Situation">
-                        <span class="q-position-region">${similarJobList[i].areaName}</span>
-                        <span class="q-position-years">${similarJobList[i].gongzuonianxian}</span>
-                        <span class="q-position-edu">${similarJobList[i].xueliyaoqiu}</span>
-                        <span>距离 <span>${similarJobList[i].distance}</span> 公里</span>
+        if(similarJobList.length!=0){
+            $('##xiangsizhiwei').show()
+            for (let i = 0; i < similarJobList.length; i++) {
+                $('.q-position-box').html(`
+                    <div class="q-positiondetails">
+                        <div class="q-position-name">${similarJobList[i].name}</div>
+                        <div class="q-position-Situation">
+                            <span class="q-position-region">${similarJobList[i].areaName}</span>
+                            <span class="q-position-years">${similarJobList[i].gongzuonianxian}</span>
+                            <span class="q-position-edu">${similarJobList[i].xueliyaoqiu}</span>
+                            <span>距离 <span>${similarJobList[i].distance}</span> 公里</span>
+                        </div>
+                        <div class="q-position-fl">
+                            <span class="q-position-label">五险一金</span>
+                        </div>
+                        <div>
+                            <span class="q-interview-t">面试时间：</span>
+                            <span class="q-interview-t-content">${similarJobList[i].mianshishijian}</span>
+                        </div>
                     </div>
-                    <div class="q-position-fl">
-                        <span class="q-position-label">五险一金</span>
+                    <div class="q-interview-right">
+                        <div class="q-interview-right-xz">${((similarJobList[i].salaryMin) / 1000).toFixed(1)}k-${((similarJobList[i].salaryMax) / 1000).toFixed(1)}k</div>
+                        <div class="q-interview-right-ren">
+                            已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
+                        </div>
                     </div>
-                    <div>
-                        <span class="q-interview-t">面试时间：</span>
-                        <span class="q-interview-t-content">${similarJobList[i].mianshishijian}</span>
-                    </div>
-                </div>
-                <div class="q-interview-right">
-                    <div class="q-interview-right-xz">${((similarJobList[i].salaryMin) / 1000).toFixed(1)}k-${((similarJobList[i].salaryMax) / 1000).toFixed(1)}k</div>
-                    <div class="q-interview-right-ren">
-                        已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
-                    </div>
-                </div>
-                `)
-            for (let i = 0; i < similarJobList[i].labels.length; i++) {
-                $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
+                    `)
+                for (let i = 0; i < similarJobList[i].labels.length; i++) {
+                    $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
+                }
             }
         }
-
     }
 })
 
