@@ -347,7 +347,7 @@ $.ajax({
             $('.q-jixiaogongzi').parent().hide()
         }
         if(job.type=='online'){
-            ${'#mianshidizhi'}.hide()
+            $('#mianshidizhi').hide()
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){
