@@ -392,7 +392,8 @@
 }
 .q-p{
     margin-left: 11px;
-    width: 280px;
+    width: 200px;
+    display: inline-block;
 }
 .q-p-name{
     font-size:16px;

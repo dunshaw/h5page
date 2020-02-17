@@ -32,34 +32,20 @@ $('.q-top-fx').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
     }
 })
-$('.q-btn-sq').click(function() {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-});
+
 $('.q-top-bg').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -71,8 +57,7 @@ $('.q-competitivePower').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -84,8 +69,7 @@ $('.q-successsee').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -97,8 +81,7 @@ $('.q-gongsiSituation').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -110,8 +93,7 @@ $('.q-publisher').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -123,8 +105,7 @@ $('.q-position-box').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -136,8 +117,7 @@ $('.q-bottom-btn').click(function () {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
     } else if (aAndI == 'ios') {
         // alert('苹果客户端暂未开放，敬请期待！')
-        $('#links').attr('href','https://apps.apple.com/cn/app/id1485685440')
-        $('#links').click()
+        window.location.href='https://apps.apple.com/cn/app/id1485685440'
     } else {
         alert('请在移动端打开该网页')
         return
@@ -421,7 +401,7 @@ $.ajax({
         // $('.q-r-edu').html(requirements.educationRequirement)
         // $('.q-r-age').html(requirements.ageRequirement)
         // $('.q-r-exp').html(requirements.workExperienceRequirement)
-        if(publisher){
+        if(publisher && job.type=='online'){
             $('.q-p-name').html(publisher.name)
             $('.q-active').html(publisher.lastActive)
             $('.q-p-position').html(publisher.position)
