@@ -422,7 +422,8 @@
 .q-position-box{
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
 }
 .q-positiondetails{
     display: flex;
