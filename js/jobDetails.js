@@ -10,7 +10,15 @@ else {
     id = str
 }
 
-const imgIp = 'https://img.jobpoolhr.com/'   // 图片服务器地址
+let nowUrl = window.location.host;
+var imgIp;
+console.log(nowUrl)
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+}else{
+    imgIp = 'https://img.jobpoolhr.com/'
+}
+// const imgIp = 'https://img.jobpoolhr.com/'   // 图片服务器地址
 const _URL = 'https://app.jobpoolhr.com/'; //服务器地址
 
 $('.q-top-back').click(function () {
