@@ -1,6 +1,4 @@
-setTimeout(()=>{
-    window.location.reload()
-},100)
+
 let str = location.search.split('?id=')[1]
 const index = str.search(/&/)
 let id = ''
