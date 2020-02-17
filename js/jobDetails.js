@@ -409,7 +409,7 @@ $.ajax({
             $('.q-p-touxiang').attr('src', imgIp + res.body.publisher.avatar)
         }
         if(similarJobList.length!=0){
-            $('##xiangsizhiwei').show()
+            $('#xiangsizhiwei').show()
             for (let i = 0; i < similarJobList.length; i++) {
                 $('.q-position-box').html(`
                     <div class="q-positiondetails">
