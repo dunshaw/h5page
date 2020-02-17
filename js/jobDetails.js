@@ -1,3 +1,4 @@
+
 let str = location.search.split('?id=')[1]
 const index = str.search(/&/)
 let id = ''
@@ -417,7 +418,7 @@ $.ajax({
         }
         if(similarJobList.length!=0){
             $('#xiangsizhiwei').show()
-            $('#xiangsizhiwei').remove('.q-position-box');
+            $('.q-position-box').remove();
             for (let i = 0; i < similarJobList.length; i++) {
                 let _div = $('<div class="q-position-box"></div>')
                 _div.html(`
