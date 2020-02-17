@@ -9,7 +9,6 @@ if (index) {
 else {
     id = str
 }
-
 let nowUrl = window.location.host;
 var imgIp;
 console.log(nowUrl)
@@ -418,9 +417,10 @@ $.ajax({
         }
         if(similarJobList.length!=0){
             $('#xiangsizhiwei').show()
-            let _html=''
+            $('#xiangsizhiwei').remove('.q-position-box');
             for (let i = 0; i < similarJobList.length; i++) {
-                _html += `
+                let _div = $('<div class="q-position-box"></div>')
+                _div.html(`
                     <div class="q-positiondetails">
                         <div class="q-position-name">${similarJobList[i].name}</div>
                         <div class="q-position-Situation">
@@ -443,12 +443,12 @@ $.ajax({
                             已申请 <span class="q-interview-right-num"> ${similarJobList[i].applyNumber} </span>人
                         </div>
                     </div>
-                    `
+                    `)
                 for (let i = 0; i < similarJobList[i].labels.length; i++) {
                     $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
                 }
+                $('#xiangsizhiwei').append(_div);
             }
-            $('.q-position-box').html(_html)
         }
     }
 })
