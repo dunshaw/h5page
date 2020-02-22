@@ -1,5 +1,15 @@
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
-const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
+let nowUrl = window.location.host;
+var imgIp;
+var _URL;
+console.log(nowUrl)
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com'
+}else{
+    imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com'
+}
+
 // 轮播
 setTimeout(function () {
   var mySwiper = new Swiper('.swiper-container', {
@@ -28,9 +38,10 @@ $.ajax({
 // 获取评论
 let comments = [] //评论列表
 $.ajax({
-  url:  '/api/community/list',
+  url:  '/api/community/list?lng=104.0647&lat=30.5702',
   type: 'get',
   success: function (res) {
+    console.log(res)
     if (res.body.length != 0) {
       for (let i = 0; i < res.body.length; i++) {
         if (res.body[i].commentList.length) {
@@ -148,7 +159,7 @@ $('.swiper-wrapper').on('click', '.swiper-slide', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -160,7 +171,7 @@ $('.q-block2').on('click', '.q-block2-job', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -172,7 +183,7 @@ $('.q-block4-titleshe').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -184,7 +195,7 @@ $('.q-block4-titlesee').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -196,7 +207,7 @@ $('.q-block4-con').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -209,7 +220,7 @@ $('.q-bottom').on('click', '.q-bottom-tab', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
