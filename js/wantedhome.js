@@ -179,6 +179,7 @@ $.ajax({
                       <span class="q-position-edu">${data[i].job.education}</span>
                       <span>距离 <span>${data[i].job.distance}</span> 公里</span>
                   </div>
+                  <div class="q-interview-right-reward"></div>
                   <div class="q-position-fl">
 
                   </div>
@@ -192,9 +193,7 @@ $.ajax({
                       <div class="q-interview-right-xz">${(data[i].job.salaryMin / 1000).toFixed(1)}K-${(data[i].job.salaryMax / 1000).toFixed(1)}K</div>
                       <div class="q-interview-right-type">在线直聘</div>
                       <div class="q-interview-right-type2">现场直面会</div>
-                      <div class="q-interview-right-reward">
-
-                      </div>
+                      
                   </div>
                   <div class="q-interview-right-ren">
                       已申请 <span class="q-interview-right-num"> ${data[i].job.applyNumber} </span>人
@@ -353,6 +352,7 @@ function getlist(page) {
               <span class="q-position-edu">${arr[i].job.education}</span>
               <span>距离 <span>${arr[i].job.distance}</span> 公里</span>
           </div>
+          <div class="q-interview-right-reward"></div>
           <div class="q-position-fl">
 
           </div>
@@ -366,9 +366,6 @@ function getlist(page) {
               <div class="q-interview-right-xz">${(arr[i].job.salaryMin / 1000).toFixed(1)}K-${(arr[i].job.salaryMax / 1000).toFixed(1)}K</div>
               <div class="q-interview-right-type">在线直聘</div>
               <div class="q-interview-right-type2">现场直面会</div>
-              <div class="q-interview-right-reward">
-
-              </div>
           </div>
           <div class="q-interview-right-ren">
               已申请 <span class="q-interview-right-num"> ${arr[i].job.applyNumber} </span>人
