@@ -142,13 +142,13 @@ $.ajax({
       danmu(arr[0], 0)
       const timer = setInterval(() => {
         num++
-        if (num === arr.length + 1) {
+        if (num === arr.length ) {
           num = 0
           // clearInterval(timer)
           $('.q-block3-contentbox').empty()
         }
         danmu(arr[num], num)
-      }, 500);
+      }, 1000);
 
     }
   }
@@ -251,5 +251,5 @@ function danmu(content, num) {
   const tops = ['0%', '25%', '75%', '100%']
   $('.q-block3-contentbox').append(`<span class="q-block3-c"> ${content}~</span>`)
   $('.q-block3-c').eq(num).css({ 'top': tops[Math.floor(Math.random() * 4)] })
-  $('.q-block3-c').eq(num).animate({ 'left': '-100%', }, 10000, 'linear')
+  $('.q-block3-c').eq(num).animate({ 'left': '-100%', }, 5000, 'linear')
 }
