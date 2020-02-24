@@ -53,7 +53,6 @@ $.ajax({
     for (let i = 0; i < res.body.length; i++) {
       $('.swiper-container .swiper-wrapper').append($(`<div class="swiper-slide"> <img src="${imgIp + res.body[i].pictureLink}"> </div>`))
     }
-
   }
 })
 // 新闻
@@ -66,6 +65,8 @@ $.ajax({
     isHeadline: true
   },
   success: function (res) {
+    $('.swiper-container2 .swiper-wrapper').empty()
+    console.log(res)
     if (arr) {
       for (let i = 0; i < res.body.records.length; i++) {
         $('.swiper-container2 .swiper-wrapper').append($(`
