@@ -454,7 +454,7 @@ $('.q-tabbox').on('click', '.q-tab', function () {
   }
 })
 
-$('.q-position-box').on('click', function () {
+$('.q-position-block').on('click', '.q-position-box', function () {
   let aAndI = detect()
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
@@ -466,7 +466,7 @@ $('.q-position-box').on('click', function () {
   }
 })
 
-$('.q-recommend-set').on('click', function () {
+$('.q-position-block-top').on('click', '.q-position-box', function () {
   let aAndI = detect()
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
@@ -478,7 +478,19 @@ $('.q-recommend-set').on('click', function () {
   }
 })
 
-$('.swiper-container-vertical').on('click', function () {
+$('.q-recommend-set').click(function () {
+  let aAndI = detect()
+  if (aAndI == 'android') {
+    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+  } else if (aAndI == 'ios') {
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
+  } else {
+    alert('请在移动端打开该网页')
+    return
+  }
+})
+
+$('.swiper-container-vertical').on('click', '.swiper-container-vertical',function () {
   let aAndI = detect()
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
