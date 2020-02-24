@@ -145,6 +145,8 @@
 }
 .q-Interviewtime,.q-workingAddress{
     display: flex;
+    flex-direction:row;
+    align-items: center; 
     line-height:35px;
 }
 .q-successsee{
@@ -155,7 +157,7 @@
     line-height:35px;
 }
 .q-Interviewtime-title,.q-workingAddress-title{
-    width: 110px;
+    width: 30%;
     font-size:14px;
     font-family:PingFang SC;
     font-weight:400;
@@ -166,7 +168,7 @@
     line-height: 25px;
 }
 .q-distance{
-    margin-left: 65px;
+    margin-left: 30%;
     font-size:12px;
     font-family:PingFang SC;
     font-weight:400;
@@ -383,6 +385,7 @@
 }
 .q-publisher{
     display: flex;
+    align-items: center;
     width: 100%;
     margin: 10px 0 25px 0;
 }
@@ -392,8 +395,7 @@
 }
 .q-p{
     margin-left: 11px;
-    width: 200px;
-    display: inline-block;
+    padding-right: 10px;
 }
 .q-p-name{
     font-size:16px;

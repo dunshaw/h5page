@@ -403,7 +403,7 @@ $.ajax({
             $('.q-p-name').html(publisher.name)
             $('.q-active').html(publisher.lastActive)
             $('.q-p-position').html(publisher.position)
-            $('#zhiweifabuzhe').show()
+            $('#zhiweifabuzhe').css('display','flex')
         }
         
         if (res.body.companyLogo.sourcePath) {
@@ -427,7 +427,7 @@ $.ajax({
                             <span>距离 <span>${similarJobList[i].distance}</span> 公里</span>
                         </div>
                         <div class="q-position-fl">
-                            <span class="q-position-label">五险一金</span>
+                            
                         </div>
                         <div>
                             <span class="q-interview-t">面试时间：</span>
@@ -441,8 +441,9 @@ $.ajax({
                         </div>
                     </div>
                     `)
+
                 for (let i = 0; i < similarJobList[i].labels.length; i++) {
-                    $('.q-position-fl').html(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
+                    _div.find('.q-position-fl').append(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
                 }
                 $('#xiangsizhiwei').append(_div);
             }
