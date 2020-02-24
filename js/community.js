@@ -126,28 +126,28 @@ $.ajax({
           `)
         }
       }
-      // 提取content存入arr
-      let arr = []
-      for (let index = 0; index < comments.length; index++) {
-        const element = comments[index];
-        for (let index = 0; index < element.length; index++) {
-          const element1 = element[index];
-          if (element1.content) {
-            arr.push(element1.content)
-          }
-        }
-      }
-      let num = 0
-      danmu(arr[0], 0)
-      const timer = setInterval(() => {
-        num++
-        if (num === arr.length ) {
-          num = 0
-          // clearInterval(timer)
-          $('.q-block3-contentbox').empty()
-        }
-        danmu(arr[num], num)
-      }, 1000);
+      // // 提取content存入arr
+      // let arr = []
+      // for (let index = 0; index < comments.length; index++) {
+      //   const element = comments[index];
+      //   for (let index = 0; index < element.length; index++) {
+      //     const element1 = element[index];
+      //     if (element1.content) {
+      //       arr.push(element1.content)
+      //     }
+      //   }
+      // }
+      // let num = 0
+      // // danmu(arr[0], 0)
+      // const timer = setInterval(() => {
+      //   num++
+      //   if (num === arr.length ) {
+      //     num = 0
+      //     // clearInterval(timer)
+      //     $('.q-block3-contentbox').empty()
+      //   }
+      //   danmu(arr[num], num)
+      // }, 1000);
 
     }
   }
