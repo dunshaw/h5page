@@ -242,7 +242,8 @@ $.ajax({
   data: {
     cityCode: cdcode,
     lng: _lng,
-    lat: _lat
+    lat: _lat,
+    homeFlag: true
   },
   success: function (res) {
     console.log(res)
@@ -272,6 +273,14 @@ function getlist(page) {
     })
   }
   else {
+    let newArr = []
+    for (let index = 0; index < arr.length; index++) {
+      if (newArr.indexOf(arr[index].job.id) == -1) {
+        newArr.push(arr[index].job.id)
+      }else{
+        arr.splice(index, 1)
+      }
+    }
     for (let i = 0; i < arr.length; i++) {
       switch (arr[i].job.education) {
         case 'no':
@@ -373,7 +382,7 @@ function getlist(page) {
       </div>
       `)
       
-      if(arr[i].showType!='recommend'){
+      if(arr[i].job.showType!='recommend'){
         _div.find('.headrtoutiao').css('display','none')
       }
       if (arr[i].labels) {
@@ -445,6 +454,18 @@ $('.q-tabbox').on('click', '.q-tab', function () {
 })
 
 $('.q-position-block').on('click', '.q-position-box', function () {
+  let aAndI = detect()
+  if (aAndI == 'android') {
+    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+  } else if (aAndI == 'ios') {
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
+  } else {
+    alert('请在移动端打开该网页')
+    return
+  }
+})
+
+$('.dianwoshezhi').on('click', '.q-position-box', function () {
   let aAndI = detect()
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')

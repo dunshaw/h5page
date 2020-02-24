@@ -47,7 +47,6 @@ $.ajax({
         if (res.body[i].commentList.length) {
           comments.push(res.body[i].commentList)
         }
-
         //判断自己是否点赞
         if (res.body[i].isLike) {
           $('.q-block4-faandcom-left img').attr('src', '../images/zany.png')
@@ -118,7 +117,7 @@ $.ajax({
               </div>
             `)
         }
-        if (res.body[i].commentList.length > 3) {
+        if (res.body[i].commentList.length != 0) {
           // 超出隐藏
           $('.item').eq(i).append(`
             <div class="q-block4-seeall">
@@ -151,6 +150,16 @@ $.ajax({
       }, 1000);
 
     }
+  }
+})
+
+// 获取弹幕
+$.ajax({
+  url:  '/api/community/hotlist',
+  type: 'get',
+  success: function (res) {
+    console.log(res)
+
   }
 })
 

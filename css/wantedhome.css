@@ -247,6 +247,7 @@
     line-height:20px;
     border:1px solid rgba(69,179,230,1);
     border-radius:2px;
+    margin-right: 5px;
 }
 .q-interview-women{
     font-size:10px;
@@ -256,6 +257,7 @@
     line-height:20px;
     border:1px solid rgba(255,110,109,1);
     border-radius:2px;
+    margin-right: 5px;
 }
 .q-interview-tuijian{
     font-size:10px;
@@ -293,3 +295,28 @@
   top: 0;
   left: 0;
 }
+.q-recommend-set{
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+    font-family: PingFang;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 20px;
+    position: relative;
+}
+.q-recommend-set img{
+    width: 100%;
+    height: 60px;
+}
+.q-recommend-set-textbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dianwoshezhi{
+    color: #2EA7E0;
+}
+
+
