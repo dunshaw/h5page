@@ -454,7 +454,7 @@ $('.q-tabbox').on('click', '.q-tab', function () {
   }
 })
 
-$('.q-position-block').on('click', '.q-position-box', function () {
+$('.q-position-box').on('click', function () {
   let aAndI = detect()
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
