@@ -112,7 +112,7 @@ $.ajax({
           // item = 
           $('.q-block4-comment').eq(i).append(`
             <div class="q-block4-comment1">
-                <span class="q-block4-comment-user">${res.body[i].commentList[j].commentUser}</span>
+                <span class="q-block4-comment-user">${res.body[i].commentList[j].commentUser}：</span>
                 <span class="q-block4-comment-text">${res.body[i].commentList[j].content}</span>
               </div>
             `)
