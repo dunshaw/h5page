@@ -1,9 +1,43 @@
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
+$('.content-item').click(function(e) {
+  console.log(e.currentTarget.dataset.id)
+  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
+  let timer = setInterval('changeColor()',300);
+  setTimeout(()=>{
+    clearInterval(timer);
+    $(".q-bottom input").css("background","#eee");
+  },1500)
+});
+var colorFlag = 0;
+function changeColor() { 
+  if (!colorFlag)
+  {
+   $(".q-bottom input").css("background","#fff");
+   colorFlag = 1;
+  }else{
+   $(".q-bottom input").css("background","#eee");
+   colorFlag = 0;
+  }
+}
+
+let nowUrl = window.location.host;
+var imgIp;
+var _URL;
+console.log(nowUrl)
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/api'
+}else{
+    imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com/api'
+}
+
+
 const exp = /^1\d{10}$/;   //手机号正则
 var str = location.search.split('?')[1];
 // var relationId = str.split('&')[0].split('=')[1];
 var relationId = getQueryArgs().relationId
 var jobId = getQueryArgs().id
+var scanCodeType = getQueryArgs().scanCodeType
 // var interviewTime = getQueryArgs().interviewTime
 
 var type = str.split('&')[1].split('=')[1];
@@ -31,19 +65,69 @@ function detect() {
     return equipmentType;
 }
 
+$.ajax({
+    url:  '/api/job/findRandomJobs',
+    type: 'get',
+    success: function (res) {
+      console.log(res)
+      $('.content').empty()
+      let data = res.body;
+      for (let i = 0; i < data.length; i++) {
+          let _div = $('<div class="content-item"></div>')
+          _div.html(`<div class="content-item-left">
+                    <div class="content-item-left-top">
+                        <img src="../images/Recommededprizes.png" alt="">
+                        <div>
+                            <h3>${data[i].jobName}</h3>
+                            <p>${data[i].companyName}</p>
+                        </div>
+                    </div>
+                    <div class="content-item-left-bottom">
+                    </div>
+                </div>
+                <div class="content-item-right">
+                    <h3>${(data[i].salaryMin / 1000).toFixed(1)}K-${(data[i].salaryMax / 1000).toFixed(1)}k</h3>
+                </div>`)
+          if (data[i].labels != null) {
+                data[i].labels = data[i].labels.split(",");
+            } else {
+                data[i].labels = [];
+            }
+          if (data[i].labels) {
+            if (data[i].labels.length > 3) {
+              data[i].labels = data[i].labels.slice(0, 3)
+            }
+            for (let j = 0; j < data[i].labels.length; j++) {
+              _div.find('.content-item-left-bottom').append(`<span class="q-position-label">${data[i].labels[j]}</span>`)
+            }
+          }
+          if (data[i].maleReward && data[i].recommendReward) {
+            _div.find('.content-item-right').append(`<div class="m_reward">男奖${data[i].maleReward}</div>`)
+          }
+          if (data[i].femaleReward && data[i].recommendReward) {
+            _div.find('.content-item-right').append(`<div class="w_reward">女奖${data[i].femaleReward}</div>`)
+          }
+          if (data[i].recommendedAwardNew && data[i].recommendAmount) {
+            _div.find('.content-item-right').append(`<div class="r_reward">推荐${data[i].recommendAmount}</div>`)
+          }
+          $('.content').append(_div)
+      }
+    }
+  })
+
 
 $('.q-bottom button').click(function () {
     if (exp.test($('.q-bottom input').val())) {
-
         $.ajax({
-            url:  '/api/shareQrCode/save',
+            url:  '/shareQrCode/save',
             type: 'post',
             data: {
                 relationId: relationId,
                 type: type,
                 phone: $('.q-bottom input').val(),
                 jobId: jobId,
-                interviewTime:''
+                interviewTime:'',
+                scanCodeType:scanCodeType
             },
             success: function (res) {
                 console.log(res)
@@ -88,4 +172,5 @@ function getQueryArgs() {
       }
     }
     return args;
-  }
+}
+
