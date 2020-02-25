@@ -1,15 +1,5 @@
 
-let str = location.search.split('?id=')[1]
-const index = str.search(/&/)
-let id = ''
-// 有&，判断qq浏览器在地址后面添加参数
-if (index) {
-    id = str.slice(0, 19)
-}
-// 正常浏览器
-else {
-    id = str
-}
+var id = getQueryArgs().id
 let nowUrl = window.location.host;
 var imgIp;
 console.log(nowUrl)
@@ -469,4 +459,28 @@ function detect() {
         equipmentType = "windows";
     }
     return equipmentType;
+}
+
+
+function getQueryArgs() {
+    var url = location.search;
+    var qs = (url.length > 0 ? url.substring(url.indexOf('?')).substr(1) : ''),
+      //保存每一项
+      args = {},
+      //得到每一项
+      items = qs.length ? qs.split('&') : [],
+      item = null,
+      name = null,
+      value = null,
+      i = 0,
+      len = items.length;
+
+    for (i = 0; i < len; i++) {
+      item = items[i].split('='),
+        name = decodeURIComponent(item[0])
+      value = decodeURIComponent(item[1])
+      if (name.length) {
+        args[name] = value;
+      }
+    }
 }
