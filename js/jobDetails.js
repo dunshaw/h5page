@@ -1,116 +1,25 @@
 
 var id = getQueryArgs().id
+var relationId = getQueryArgs().relationId
+var scanCodeType = getQueryArgs().scanCodeType
+var type = getQueryArgs().type
+const exp = /^1\d{10}$/;   //手机号正则
 let nowUrl = window.location.host;
 var imgIp;
+var _URL;
 console.log(nowUrl)
 if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
 }else{
     imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com/'
 }
 // const imgIp = 'https://img.jobpoolhr.com/'   // 图片服务器地址
-const _URL = 'https://app.jobpoolhr.com/'; //服务器地址
+// const _URL = 'https://app.jobpoolhr.com/'; //服务器地址
 
-$('.q-top-back').click(function () {
-    history.back()
-})
-$('.q-top-fx').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
 
-$('.q-top-bg').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-competitivePower').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-successsee').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-gongsiSituation').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-publisher').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-position-box').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
-$('.q-bottom-btn').click(function () {
-    let aAndI = detect()
-    if (aAndI == 'android') {
-        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-    } else if (aAndI == 'ios') {
-        // alert('苹果客户端暂未开放，敬请期待！')
-        window.location.href='https://apps.apple.com/cn/app/id1485685440'
-    } else {
-        alert('请在移动端打开该网页')
-        return
-    }
-})
+
 
 // 动态设置banner高度
 console.log($('.q-top-bg').height())
@@ -324,7 +233,7 @@ $.ajax({
         $('.q-w-year').html(job.gongzuonianxian);
         $('.q-salary').html(`${(job.salaryMin / 1000).toFixed(1)}K~${(job.salaryMax / 1000).toFixed(1)}K`);
         $('.q-applynum').html(job.applyNumber);
-        $('.q-Interviewtime-content').html(job.interviewTimeString);
+        $('.q-Interviewtime-content').html(job.interviewTimeString?job.interviewTimeString:'等待通知');
         $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
         $('.q-workadd').html(job.workingAddress + job.supplementAddress)
         $('.q-km').html(job.distance)
@@ -342,6 +251,9 @@ $.ajax({
         }
         if(job.type=='scene'){
             $('.q-workingAddress').hide()
+        }
+        if(job.lookStatus == 0){
+            $('.mianshidizhiqiehuan').css('display','none');
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){
@@ -389,19 +301,23 @@ $.ajax({
         // $('.q-r-edu').html(requirements.educationRequirement)
         // $('.q-r-age').html(requirements.ageRequirement)
         // $('.q-r-exp').html(requirements.workExperienceRequirement)
-        if(publisher && job.type=='online'){
-            $('.q-p-name').html(publisher.name)
-            $('.q-active').html(publisher.lastActive)
-            $('.q-p-position').html(publisher.position)
-            $('#zhiweifabuzhe').css('display','flex')
+        if(publisher){
+            if(job.type=='online'){
+                $('.q-p-name').html(publisher.name)
+                $('.q-active').html(publisher.lastActive)
+                $('.q-p-position').html(publisher.position)
+                $('#zhiweifabuzhe').css('display','flex')
+                $('.zhiweifabuzhebox').css('display','block')  
+            }
+            if (res.body.publisher.avatar) {
+                $('.q-p-touxiang').attr('src', imgIp + res.body.publisher.avatar)
+            }
         }
         
         if (res.body.companyLogo.sourcePath) {
             $('.q-gongsitouxiang').attr('src', imgIp + res.body.companyLogo.sourcePath)
         }
-        if (res.body.publisher.avatar) {
-            $('.q-p-touxiang').attr('src', imgIp + res.body.publisher.avatar)
-        }
+        
         if(similarJobList.length!=0){
             $('#xiangsizhiwei').show()
             $('.q-position-box').remove();
@@ -483,4 +399,89 @@ function getQueryArgs() {
         args[name] = value;
       }
     }
+    return args;
 }
+
+$('.q-bottom button').click(function () {
+    if (exp.test($('.q-bottom input').val())) {
+        $.ajax({
+            url:  '/api/shareQrCode/save',
+            type: 'post',
+            data: {
+                relationId: relationId,
+                type: type,
+                phone: $('.q-bottom input').val(),
+                jobId: id,
+                interviewTime:'',
+                scanCodeType:scanCodeType
+            },
+            success: function (res) {
+                console.log(res)
+                let aAndI = detect()
+                console.log(aAndI)
+                if (aAndI == 'android') {
+                  window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                }else if(aAndI =='ios'){
+                  window.location.href='https://apps.apple.com/cn/app/id1485685440'
+                }
+                else {
+                    alert('请在移动端打开该网页')
+                    return
+                }
+            }
+        })
+
+    } else {
+        alert('手机号错误')
+    }
+})
+
+function itemclick() {
+  console.log('123')
+  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
+  let timer = setInterval('changeColor()',300);
+  setTimeout(()=>{
+    clearInterval(timer);
+    $(".q-bottom input").css("background","#eee");
+  },1500)
+};
+var colorFlag = 0;
+function changeColor() { 
+  if (!colorFlag)
+  {
+   $(".q-bottom input").css("background","#fff");
+   colorFlag = 1;
+  }else{
+   $(".q-bottom input").css("background","#eee");
+   colorFlag = 0;
+  }
+}
+
+$('.q-top-back').click(function () {
+    history.back()
+})
+$('.q-top-fx').click(function () {
+    itemclick()
+})
+
+$('.q-top-bg').click(function () {
+    itemclick()
+})
+$('.q-competitivePower').click(function () {
+    itemclick()
+})
+$('.q-successsee').click(function () {
+    itemclick()
+})
+$('.q-gongsiSituation').click(function () {
+    itemclick()
+})
+$('.q-publisher').click(function () {
+    itemclick()
+})
+$('.q-position-box').click(function () {
+    itemclick()
+})
+$('.q-bottom-btn').click(function () {
+    itemclick()
+})

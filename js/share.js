@@ -1,23 +1,4 @@
-$('.content-item').click(function(e) {
-  console.log(e.currentTarget.dataset.id)
-  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
-  let timer = setInterval('changeColor()',300);
-  setTimeout(()=>{
-    clearInterval(timer);
-    $(".q-bottom input").css("background","#eee");
-  },1500)
-});
-var colorFlag = 0;
-function changeColor() { 
-  if (!colorFlag)
-  {
-   $(".q-bottom input").css("background","#fff");
-   colorFlag = 1;
-  }else{
-   $(".q-bottom input").css("background","#eee");
-   colorFlag = 0;
-  }
-}
+
 
 let nowUrl = window.location.host;
 var imgIp;
@@ -36,15 +17,19 @@ const exp = /^1\d{10}$/;   //手机号正则
 var str = location.search.split('?')[1];
 // var relationId = str.split('&')[0].split('=')[1];
 var relationId = getQueryArgs().relationId
-var jobId = getQueryArgs().id
+var jobId = getQueryArgs().id?getQueryArgs().id:''
 var scanCodeType = getQueryArgs().scanCodeType
 // var interviewTime = getQueryArgs().interviewTime
 
 var type = str.split('&')[1].split('=')[1];
 
 //获取手机屏幕高度
-var h = window.screen.height;
-$('.q-bigbox').css('height', h)
+var winHeight = $(window).height();
+$(window).resize(function() {
+    var thisHeight = $(this).height();
+    var keyboardHeight = thisHeight - winHeight;
+    $(".q-bigbox").css({ 'bottom': keyboardHeight + 'px' });
+});
 //判断当前设备是安卓还是ios
 function detect() {
     var equipmentType = "";
@@ -73,10 +58,10 @@ $.ajax({
       $('.content').empty()
       let data = res.body;
       for (let i = 0; i < data.length; i++) {
-          let _div = $('<div class="content-item"></div>')
+          let _div = $('<div class="content-item" onclick="itemclick()"></div>')
           _div.html(`<div class="content-item-left">
                     <div class="content-item-left-top">
-                        <img src="../images/Recommededprizes.png" alt="">
+                        <img src="${imgIp +data[i].logoPath}" alt="">
                         <div>
                             <h3>${data[i].jobName}</h3>
                             <p>${data[i].companyName}</p>
@@ -119,7 +104,7 @@ $.ajax({
 $('.q-bottom button').click(function () {
     if (exp.test($('.q-bottom input').val())) {
         $.ajax({
-            url:  '/shareQrCode/save',
+            url:  '/api/shareQrCode/save',
             type: 'post',
             data: {
                 relationId: relationId,
@@ -172,5 +157,27 @@ function getQueryArgs() {
       }
     }
     return args;
+}
+
+function itemclick() {
+  console.log('123')
+  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
+  let timer = setInterval('changeColor()',300);
+  setTimeout(()=>{
+    clearInterval(timer);
+    $(".q-bottom input").css("background","#eee");
+  },1500)
+};
+var colorFlag = 0;
+function changeColor(
+  ) { 
+  if (!colorFlag)
+  {
+   $(".q-bottom input").css("background","#fff");
+   colorFlag = 1;
+  }else{
+   $(".q-bottom input").css("background","#eee");
+   colorFlag = 0;
+  }
 }
 
