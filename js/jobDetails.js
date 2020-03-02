@@ -434,7 +434,8 @@ $('.q-bottom button').click(function () {
     } else {
         alert('手机号错误')
     }
-})
+});
+
 
 function itemclick() {
   console.log('123')
