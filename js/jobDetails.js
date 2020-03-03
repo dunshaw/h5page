@@ -213,7 +213,7 @@ $.ajax({
             if (b.interviewTime != null) {
                 b["mianshishijian"] = b.interviewTime
             } else {
-                b["mianshishijian"] = '待定'
+                b["mianshishijian"] = '等待通知'
             }
             if (b.labels != null) {
                 b.labels = b.labels.split(",");
@@ -249,9 +249,9 @@ $.ajax({
         if(job.type=='online'){
             $('#mianshidizhi').hide()
         }
-        if(job.type=='scene'){
-            $('.q-workingAddress').hide()
-        }
+        // if(job.type=='scene'){
+        //     $('.q-workingAddress').hide()
+        // }
         if(job.lookStatus == 0){
             $('.mianshidizhiqiehuan').css('display','none');
         }
