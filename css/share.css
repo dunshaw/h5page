@@ -7,7 +7,7 @@
     height: 100%;
     background: url('../images/bg.png') no-repeat;
     background-size: cover;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
 }
@@ -36,6 +36,7 @@
     height: 70px;
     background: #fff;
     text-align: center;
+    z-index: 1000;
 }
 .q-bottom input{
     width: 70%;
@@ -81,6 +82,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
 }
 .content-item-left-top{
     display: flex;
@@ -94,7 +96,7 @@
    margin-right: 10px; 
 }
 .content-item-left-top h3,.content-item-left-top p{
-   width: 120px;
+   width:170px;
    overflow:hidden;
    text-overflow:ellipsis;
    white-space:nowrap;
@@ -109,6 +111,7 @@
     font-weight:400;
     color:rgba(153,153,153,1);
     line-height:20px;
+    margin-right: 5px;
 }
 .content-item-right{
     display: flex;
@@ -117,7 +120,7 @@
     align-items: flex-end;
 }
 .content-item-right h3{
-    font-size: 16px;
+    font-size: 12px;
     color: #ff961e;
 }
 .m_reward,.w_reward,.r_reward{
