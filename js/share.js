@@ -61,8 +61,8 @@ $.ajax({
           let _div = $('<div class="content-item" onclick="itemclick()"></div>')
           _div.html(`<div class="content-item-left">
                     <div class="content-item-left-top">
-                        <img src="${imgIp +data[i].logoPath}" alt="">
-                        <div>
+                        <div class='imgdiv'><img src="${imgIp +data[i].logoPath}" alt=""></div>
+                        <div class='jobnamediv'>
                             <h3>${data[i].jobName}</h3>
                             <p>${data[i].companyName}</p>
                         </div>
