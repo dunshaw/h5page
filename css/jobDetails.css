@@ -5,7 +5,6 @@
 .q-top-bigbox{
     width: 100%;
     height: 190px;
-    position: relative;
 }
 .q-top-contentbox{
     width: 100%;
@@ -31,10 +30,7 @@
 }
 .q-top-bg{
     width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+    height:100%;
 }
 /* .q-top-gongsi{
     width: 60px;
@@ -555,17 +551,23 @@
 .q-bottom{
     width: 100%;
     position:fixed;
+    z-index: 10;
     bottom: 0;
     height: 70px;
     background: #fff;
     text-align: center;
     border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .q-bottom input{
     width: 70%;
-    height: 40px;
+    height: 38px;
     border: 1px solid #dcdcdc;
     background: #eee;
+    margin-right: 10px;
 }
 .q-bottom input::-webkit-input-placeholder{
     text-align: center;
@@ -575,7 +577,6 @@
 }
 .q-bottom button{
     display: inline;
-    margin-top: 15px;
     width: 20%;
     height: 40px;
     background:rgba(46,167,224,1);
