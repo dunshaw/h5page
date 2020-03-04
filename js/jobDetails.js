@@ -82,13 +82,13 @@ $.ajax({
             case 'ltOneYears':
                 a['gongzuonianxian'] = "1年以内";
                 break;
-            case 'geOneYears':
+            case 'oneYears':
                 a['gongzuonianxian'] = "1年以上";
                 break;
             case 'betweenOneAndTwoYears':
                 a['gongzuonianxian'] = "1-2年";
                 break;
-            case 'geTwoYears':
+            case 'twoYears':
                 a['gongzuonianxian'] = "2年以上";
                 break;
             case 'betweenTwoAndThreeYears':
@@ -234,7 +234,7 @@ $.ajax({
         $('.q-salary').html(`${(job.salaryMin / 1000).toFixed(1)}K~${(job.salaryMax / 1000).toFixed(1)}K`);
         $('.q-applynum').html(job.applyNumber);
         $('.q-Interviewtime-content').html(job.interviewTimeString?job.interviewTimeString:'等待通知');
-        $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
+        $('.q-miansidizhi').html(job.interviewAddress.substring(0,5)+'...')
         $('.q-workadd').html(job.workingAddress + job.supplementAddress)
         $('.q-km').html(job.distance)
         $('.q-incomenum').html(job.salaryMin + '-' + job.salaryMax)
@@ -253,7 +253,9 @@ $.ajax({
         //     $('.q-workingAddress').hide()
         // }
         if(job.lookStatus == 0){
-            $('.mianshidizhiqiehuan').css('display','none');
+            $('.mianshidizhiqiehuan').html('邀请后可查看');
+        }else{
+            $('.mianshidizhiqiehuan').html('申请成功可查看');
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){
@@ -322,6 +324,32 @@ $.ajax({
             $('#xiangsizhiwei').show()
             $('.q-position-box').remove();
             for (let i = 0; i < similarJobList.length; i++) {
+                switch (similarJobList[i].workingYears) {
+                    case 'no':
+                        similarJobList[i]['gongzuonianxian'] = "经验不限";
+                        break;
+                    case 'ltOneYears':
+                        similarJobList[i]['gongzuonianxian'] = "1年以内";
+                        break;
+                    case 'oneYears':
+                        similarJobList[i]['gongzuonianxian'] = "1年以上";
+                        break;
+                    case 'betweenOneAndTwoYears':
+                        similarJobList[i]['gongzuonianxian'] = "1-2年";
+                        break;
+                    case 'twoYears':
+                        similarJobList[i]['gongzuonianxian'] = "2年以上";
+                        break;
+                    case 'betweenTwoAndThreeYears':
+                        similarJobList[i]['gongzuonianxian'] = "2-3年";
+                        break;
+                    case 'betweenThreeAndFiveYears':
+                        similarJobList[i]['gongzuonianxian'] = "3-5年";
+                        break;
+                    case 'geFiveYears':
+                        similarJobList[i]['gongzuonianxian'] = "5年以上";
+                        break;
+                }
                 let _div = $('<div class="q-position-box"></div>')
                 _div.html(`
                     <div class="q-positiondetails">

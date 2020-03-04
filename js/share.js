@@ -61,13 +61,15 @@ $.ajax({
           let _div = $('<div class="content-item" onclick="itemclick()"></div>')
           _div.html(`<div class="content-item-left">
                     <div class="content-item-left-top">
-                        <img src="${imgIp +data[i].logoPath}" alt="">
-                        <div>
+                        <div class='imgdiv'><img src="${imgIp +data[i].logoPath}" alt=""></div>
+                        <div class='jobnamediv'>
                             <h3>${data[i].jobName}</h3>
                             <p>${data[i].companyName}</p>
                         </div>
                     </div>
                     <div class="content-item-left-bottom">
+                    </div>
+                    <div class="content-item-reward-bottom">
                     </div>
                 </div>
                 <div class="content-item-right">
@@ -87,13 +89,13 @@ $.ajax({
             }
           }
           if (data[i].maleReward && data[i].recommendReward) {
-            _div.find('.content-item-right').append(`<div class="m_reward">男奖${data[i].maleReward}</div>`)
+            _div.find('.content-item-reward-bottom').append(`<div class="m_reward">男奖${data[i].maleReward}</div>`)
           }
           if (data[i].femaleReward && data[i].recommendReward) {
-            _div.find('.content-item-right').append(`<div class="w_reward">女奖${data[i].femaleReward}</div>`)
+            _div.find('.content-item-reward-bottom').append(`<div class="w_reward">女奖${data[i].femaleReward}</div>`)
           }
           if (data[i].recommendedAwardNew && data[i].recommendAmount) {
-            _div.find('.content-item-right').append(`<div class="r_reward">推荐${data[i].recommendAmount}</div>`)
+            _div.find('.content-item-reward-bottom').append(`<div class="r_reward">推荐${data[i].recommendAmount}</div>`)
           }
           $('.content').append(_div)
       }
