@@ -146,7 +146,7 @@
 .q-Interviewtime,.q-workingAddress{
     display: flex;
     flex-direction:row;
-    align-items: center; 
+    align-items: flex-start; 
     line-height:35px;
 }
 .q-successsee{
@@ -156,6 +156,7 @@
     color:rgba(46,167,224,1);
     line-height:35px;
 }
+.q-Interviewtime-content{font-size: 14px;}
 .q-Interviewtime-title,.q-workingAddress-title{
     width: 30%;
     font-size:14px;
@@ -166,6 +167,7 @@
 .q-miansidizhi,.q-workadd{
     display: inline-block;
     line-height: 25px;
+    font-size: 14px;
 }
 .q-distance{
     margin-left: 30%;

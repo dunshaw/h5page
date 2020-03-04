@@ -234,7 +234,7 @@ $.ajax({
         $('.q-salary').html(`${(job.salaryMin / 1000).toFixed(1)}K~${(job.salaryMax / 1000).toFixed(1)}K`);
         $('.q-applynum').html(job.applyNumber);
         $('.q-Interviewtime-content').html(job.interviewTimeString?job.interviewTimeString:'等待通知');
-        $('.q-miansidizhi').html(job.interviewAddress + job.supplementInterviewAddress)
+        $('.q-miansidizhi').html(job.interviewAddress.substring(0,5)+'...')
         $('.q-workadd').html(job.workingAddress + job.supplementAddress)
         $('.q-km').html(job.distance)
         $('.q-incomenum').html(job.salaryMin + '-' + job.salaryMax)
@@ -253,7 +253,9 @@ $.ajax({
         //     $('.q-workingAddress').hide()
         // }
         if(job.lookStatus == 0){
-            $('.mianshidizhiqiehuan').css('display','none');
+            $('.mianshidizhiqiehuan').html('邀请后可查看');
+        }else{
+            $('.mianshidizhiqiehuan').html('申请成功可查看');
         }
         $('.q-butie').html(job.subsidyMin + '-' + job.subsidyMax)
         if(job.subsidyMin==0&&job.subsidyMax==0){

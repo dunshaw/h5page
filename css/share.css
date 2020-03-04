@@ -100,7 +100,7 @@
    text-overflow:ellipsis;
    white-space:nowrap;
 }
-.content-item-left-top p{color: #666;}
+.content-item-left-top p{color: #666;font-size: 14px;}
 .content-item-left-bottom{margin: 2px;}
 .q-position-label{
     background:rgba(248,248,248,1);
@@ -121,18 +121,20 @@
     align-items: flex-end;
 }
 .content-item-right h3{
-    font-size: 12px;
-    color: #ff961e;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ff961e;
+  margin-top: 5px;
 }
 .m_reward,.w_reward,.r_reward{
   /* display: inline-block; */
-  width: 70px;
+  width: 60px;
   font-size: 12px;
-  padding: 3px 0;
+  padding: 2px 0;
   box-sizing: border-box;
   text-align: center;
   border-radius: 4px;
-  margin: 1px;
+  margin:5px;
 }
 .m_reward{
   border: 1px solid #45B3E6;
@@ -152,5 +154,7 @@
    height: 60px;
 }
 .jobnamediv h3{
+  font-size: 16px;
   margin-bottom: 10px;
 }
+.content-item-reward-bottom{display: flex;}
