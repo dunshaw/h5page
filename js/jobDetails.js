@@ -1,3 +1,10 @@
+let aAndI = detect()
+if (aAndI == 'android') {
+  console.log('android')
+  if(isWeixin()){
+    $('.wxmodel').css('display','block');
+  }
+}
 
 var id = getQueryArgs().id
 var relationId = getQueryArgs().relationId
@@ -514,3 +521,7 @@ $('.q-position-box').click(function () {
 $('.q-bottom-btn').click(function () {
     itemclick()
 })
+
+function isWeixin () {
+  return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+}

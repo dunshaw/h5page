@@ -1,5 +1,11 @@
 
-
+let aAndI = detect()
+if (aAndI == 'android') {
+  console.log('android')
+  if(isWeixin()){
+    $('.wxmodel').css('display','block');
+  }
+}
 let nowUrl = window.location.host;
 var imgIp;
 var _URL;
@@ -30,6 +36,7 @@ $(window).resize(function() {
     var keyboardHeight = thisHeight - winHeight;
     $(".q-bigbox").css({ 'bottom': keyboardHeight + 'px' });
 });
+
 //判断当前设备是安卓还是ios
 function detect() {
     var equipmentType = "";
@@ -121,7 +128,8 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  window.open('https://apptest.jobpoolhr.com/jobpool/app-release.apk')
+                  // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
                 }
@@ -183,3 +191,10 @@ function changeColor(
   }
 }
 
+$('input').blur(function(){
+    window.scrollTo(0, 0)
+})
+
+function isWeixin () {
+  return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+}

@@ -5,7 +5,7 @@
 .q-bigbox{
     width: 100%;
     height: 100%;
-    background: url('../images/bg.png') no-repeat;
+    background: url('../images/bg3.png') no-repeat;
     background-size: contain;
     overflow-y: scroll;
     display: flex;
@@ -26,7 +26,7 @@
 }
 .q-photo{
     width: 322px;
-    height: 310px;
+    /*height: 310px;*/
     margin: 25px auto 0;
 }
 .q-bottom{
@@ -68,8 +68,9 @@
 }
 .content{
     width: 100%;
-    background: #88b4ec;
+    background: #4584d5;
     padding-bottom: 80px;
+    padding-top: 10px;
 }
 .content-item{
     width: 95%;
@@ -159,3 +160,25 @@
   margin-bottom: 10px;
 }
 .content-item-reward-bottom{display: flex;}
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
