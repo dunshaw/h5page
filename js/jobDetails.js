@@ -18,7 +18,11 @@ console.log(nowUrl)
 if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp ='https://imgtest.jobpoolhr.com/'
     _URL = 'https://apptest.jobpoolhr.com/'
-}else{
+}else if('47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}
+else{
     imgIp = 'https://img.jobpoolhr.com/'
     _URL = 'https://app.jobpoolhr.com/'
 }
