@@ -128,7 +128,11 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  window.open('https://apptest.jobpoolhr.com/jobpool/app-release.apk')
+                  let src = 'https://apptest.jobpoolhr.com/jobpool/app-release.apk';
+                  let form = document.createElement('form');
+                  form.action = src;
+                  document.getElementsByTagName('body')[0].appendChild(form);
+                  form.submit();
                   // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
@@ -141,7 +145,7 @@ $('.q-bottom button').click(function () {
         })
 
     } else {
-        alert('手机号错误')
+        itemclick()
     }
 })
 
@@ -171,25 +175,9 @@ function getQueryArgs() {
 
 function itemclick() {
   console.log('123')
-  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
-  let timer = setInterval('changeColor()',300);
-  setTimeout(()=>{
-    clearInterval(timer);
-    $(".q-bottom input").css("background","#eee");
-  },1500)
+  $("#tishibox").toggle();
 };
-var colorFlag = 0;
-function changeColor(
-  ) { 
-  if (!colorFlag)
-  {
-   $(".q-bottom input").css("background","#fff");
-   colorFlag = 1;
-  }else{
-   $(".q-bottom input").css("background","#eee");
-   colorFlag = 0;
-  }
-}
+
 
 $('input').blur(function(){
     window.scrollTo(0, 0)

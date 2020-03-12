@@ -182,3 +182,34 @@
   left: 0;right: 0;
   margin: 0 auto;
 }
+#tishibox{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1002;
+  display: none;
+}
+#tishibox>div{
+  width:80%;
+  height:120px;
+  margin: 200px auto;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#tishibox p{
+  height: 70px;
+  line-height: 70px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+#tishibox span{
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  color: #2CA7E0;
+}
