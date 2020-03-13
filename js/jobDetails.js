@@ -1,3 +1,10 @@
+let aAndI = detect()
+if (aAndI == 'android') {
+  console.log('android')
+  if(isWeixin()){
+    $('.wxmodel').css('display','block');
+  }
+}
 
 var id = getQueryArgs().id
 var relationId = getQueryArgs().relationId
@@ -11,7 +18,11 @@ console.log(nowUrl)
 if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp ='https://imgtest.jobpoolhr.com/'
     _URL = 'https://apptest.jobpoolhr.com/'
-}else{
+}else if('47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}
+else{
     imgIp = 'https://img.jobpoolhr.com/'
     _URL = 'https://app.jobpoolhr.com/'
 }
@@ -80,7 +91,7 @@ $.ajax({
                 a['gongzuonianxian'] = "经验不限";
                 break;
             case 'ltOneYears':
-                a['gongzuonianxian'] = "1年以内";
+                a['gongzuonianxian'] = "1年以下";
                 break;
             case 'oneYears':
                 a['gongzuonianxian'] = "1年以上";
@@ -189,25 +200,22 @@ $.ajax({
                     b['gongzuonianxian'] = "经验不限";
                     break;
                 case 'ltOneYears':
-                    b['gongzuonianxian'] = "1年以内";
-                    break;
-                case 'geOneYears':
-                    b['gongzuonianxian'] = "1年以上";
+                    b['gongzuonianxian'] = "1年以下";
                     break;
                 case 'betweenOneAndTwoYears':
                     b['gongzuonianxian'] = "1-2年";
                     break;
-                case 'geTwoYears':
-                    b['gongzuonianxian'] = "2年以上";
-                    break;
-                case 'betweenTwoAndThreeYears':
-                    b['gongzuonianxian'] = "2-3年";
+                case 'betweenOneAndThreeYears':
+                    b['gongzuonianxian'] = "1-3年";
                     break;
                 case 'betweenThreeAndFiveYears':
                     b['gongzuonianxian'] = "3-5年";
                     break;
-                case 'geFiveYears':
-                    b['gongzuonianxian'] = "5年以上";
+                case 'betweenFiveAndTenYears':
+                    b['gongzuonianxian'] = "5-10年";
+                    break;
+                case 'geTenYears':
+                    b['gongzuonianxian'] = "10年以上";
                     break;
             }
             if (b.interviewTime != null) {
@@ -326,28 +334,25 @@ $.ajax({
             for (let i = 0; i < similarJobList.length; i++) {
                 switch (similarJobList[i].workingYears) {
                     case 'no':
-                        similarJobList[i]['gongzuonianxian'] = "经验不限";
+                        similarJobList[i]['workingYears'] = "经验不限";
                         break;
                     case 'ltOneYears':
-                        similarJobList[i]['gongzuonianxian'] = "1年以内";
-                        break;
-                    case 'oneYears':
-                        similarJobList[i]['gongzuonianxian'] = "1年以上";
+                        similarJobList[i]['workingYears'] = "1年以下";
                         break;
                     case 'betweenOneAndTwoYears':
-                        similarJobList[i]['gongzuonianxian'] = "1-2年";
+                        similarJobList[i]['workingYears'] = "1-2年";
                         break;
-                    case 'twoYears':
-                        similarJobList[i]['gongzuonianxian'] = "2年以上";
-                        break;
-                    case 'betweenTwoAndThreeYears':
-                        similarJobList[i]['gongzuonianxian'] = "2-3年";
+                    case 'betweenOneAndThreeYears':
+                        similarJobList[i]['workingYears'] = "1-3年";
                         break;
                     case 'betweenThreeAndFiveYears':
-                        similarJobList[i]['gongzuonianxian'] = "3-5年";
+                        similarJobList[i]['workingYears'] = "3-5年";
                         break;
-                    case 'geFiveYears':
-                        similarJobList[i]['gongzuonianxian'] = "5年以上";
+                    case 'betweenFiveAndTenYears':
+                        similarJobList[i]['workingYears'] = "5-10年";
+                        break;
+                    case 'geTenYears':
+                        similarJobList[i]['workingYears'] = "10年以上";
                         break;
                 }
                 let _div = $('<div class="q-position-box"></div>')
@@ -448,7 +453,13 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                    let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                    let form = document.createElement('form');
+                    form.action = src;
+                    document.getElementsByTagName('body')[0].appendChild(form);
+                    form.submit();
+                    // window.open('https://apptest.jobpoolhr.com/jobpool/app-release.apk')
+                  // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
                 }
@@ -460,31 +471,16 @@ $('.q-bottom button').click(function () {
         })
 
     } else {
-        alert('手机号错误')
+        itemclick()
     }
 });
 
 
 function itemclick() {
   console.log('123')
-  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
-  let timer = setInterval('changeColor()',300);
-  setTimeout(()=>{
-    clearInterval(timer);
-    $(".q-bottom input").css("background","#eee");
-  },1500)
+  $("#tishibox").toggle();
 };
-var colorFlag = 0;
-function changeColor() { 
-  if (!colorFlag)
-  {
-   $(".q-bottom input").css("background","#fff");
-   colorFlag = 1;
-  }else{
-   $(".q-bottom input").css("background","#eee");
-   colorFlag = 0;
-  }
-}
+
 
 $('.q-top-back').click(function () {
     history.back()
@@ -514,3 +510,7 @@ $('.q-position-box').click(function () {
 $('.q-bottom-btn').click(function () {
     itemclick()
 })
+
+function isWeixin () {
+  return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+}

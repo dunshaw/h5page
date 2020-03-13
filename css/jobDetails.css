@@ -1,3 +1,26 @@
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -423,6 +446,7 @@
     color:rgba(153,153,153,1);
 }
 .q-position-box{
+    font-size:14px;
     display: flex;
     justify-content: space-between;
     padding: 15px 0;
@@ -431,9 +455,10 @@
 .q-positiondetails{
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 .q-position-name{
-    font-size:16px;
+    font-size:14px;
     font-family:PingFang SC;
     font-weight:bold;
     color:rgba(51,51,51,1);
@@ -480,7 +505,7 @@
     align-items: flex-end;
 }
 .q-interview-right-xz{
-    font-size:16px;
+    font-size:14px;
     font-family:PingFang SC;
 /*    font-weight:bold;*/
     color:rgba(255,150,30,1);
@@ -589,4 +614,35 @@
     color:rgba(255,255,255,1);
     border: none;
     z-index: 10;
+}
+#tishibox{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1002;
+  display: none;
+}
+#tishibox>div{
+  width:80%;
+  height:120px;
+  margin: 200px auto;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#tishibox p{
+  height: 70px;
+  line-height: 70px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+#tishibox span{
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  color: #2CA7E0;
 }

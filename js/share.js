@@ -1,5 +1,11 @@
 
-
+let aAndI = detect()
+if (aAndI == 'android') {
+  console.log('android')
+  if(isWeixin()){
+    $('.wxmodel').css('display','block');
+  }
+}
 let nowUrl = window.location.host;
 var imgIp;
 var _URL;
@@ -7,9 +13,13 @@ console.log(nowUrl)
 if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp ='https://imgtest.jobpoolhr.com/'
     _URL = 'https://apptest.jobpoolhr.com/api'
-}else{
+}else if('47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}
+else{
     imgIp = 'https://img.jobpoolhr.com/'
-    _URL = 'https://app.jobpoolhr.com/api'
+    _URL = 'https://app.jobpoolhr.com/'
 }
 
 
@@ -30,6 +40,7 @@ $(window).resize(function() {
     var keyboardHeight = thisHeight - winHeight;
     $(".q-bigbox").css({ 'bottom': keyboardHeight + 'px' });
 });
+
 //判断当前设备是安卓还是ios
 function detect() {
     var equipmentType = "";
@@ -121,7 +132,12 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                  let form = document.createElement('form');
+                  form.action = src;
+                  document.getElementsByTagName('body')[0].appendChild(form);
+                  form.submit();
+                  // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
                 }
@@ -133,7 +149,7 @@ $('.q-bottom button').click(function () {
         })
 
     } else {
-        alert('手机号错误')
+        itemclick()
     }
 })
 
@@ -163,23 +179,20 @@ function getQueryArgs() {
 
 function itemclick() {
   console.log('123')
-  // window.location.href = `../page/jobDetails.html?id=${e.currentTarget.dataset.id}`
-  let timer = setInterval('changeColor()',300);
-  setTimeout(()=>{
-    clearInterval(timer);
-    $(".q-bottom input").css("background","#eee");
-  },1500)
+  $("#tishibox").toggle();
 };
-var colorFlag = 0;
-function changeColor(
-  ) { 
-  if (!colorFlag)
-  {
-   $(".q-bottom input").css("background","#fff");
-   colorFlag = 1;
-  }else{
-   $(".q-bottom input").css("background","#eee");
-   colorFlag = 0;
+
+
+$('input').blur(function(){
+    window.scrollTo(0, 0)
+})
+
+function isWeixin () {
+  if(navigator.userAgent.toLowerCase().indexOf('miniprogram') != -1){
+    console.log("微信小程序");
+    return false
+  } else if (navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1){
+      console.log("微信内置浏览器");
+      return true
   }
 }
-
