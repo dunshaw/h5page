@@ -132,7 +132,7 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  let src = 'https://apptest.jobpoolhr.com/jobpool/app-release.apk';
+                  let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
                   let form = document.createElement('form');
                   form.action = src;
                   document.getElementsByTagName('body')[0].appendChild(form);
@@ -188,5 +188,11 @@ $('input').blur(function(){
 })
 
 function isWeixin () {
-  return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+  if(navigator.userAgent.toLowerCase().indexOf('miniprogram') != -1){
+    console.log("微信小程序");
+    return false
+  } else if (navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1){
+      console.log("微信内置浏览器");
+      return true
+  }
 }

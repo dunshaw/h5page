@@ -453,7 +453,7 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                    let src = 'https://apptest.jobpoolhr.com/jobpool/app-release.apk';
+                    let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
                     let form = document.createElement('form');
                     form.action = src;
                     document.getElementsByTagName('body')[0].appendChild(form);
