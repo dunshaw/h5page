@@ -72,7 +72,6 @@ $.ajax({
         $('.swiper-container2 .swiper-wrapper').append($(`
             <div class="swiper-slide">
                 <img src="../images/indexArticleIcon.png" alt="" class="q-headlines">
-                <span class="q-headlines-label">行业</span>
                 <span class="q-headlines-title">${res.body.records[i].title}</span>
             </div>
           `))
@@ -171,7 +170,7 @@ $.ajax({
                       <img src="${imgIp + data[i].companyLogo.sourcePath}" alt="" class="q-position-portrait">
                       <div>
                           <div class="q-position-name">${data[i].job.name}</div>
-                          <div class="q-position-company">${data[i].company.name}</div>
+                          <div class="q-position-company">${data[i].job.companyName}</div>
                       </div>
                   </div>
                   <div class="q-position-Situation">
@@ -353,7 +352,7 @@ function getlist(page) {
               <img src="${imgIp + arr[i].companyLogo.sourcePath}" alt="" class="q-position-portrait">
               <div>
                   <div class="q-position-name">${arr[i].job.name}</div>
-                  <div class="q-position-company">${arr[i].company.name}</div>
+                  <div class="q-position-company">${arr[i].job.companyName}</div>
               </div>
           </div>
           <div class="q-position-Situation">
