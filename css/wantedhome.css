@@ -72,8 +72,9 @@
     white-space:nowrap;
 }
 .q-headlines-title{
+    margin-left: 10px;
     display: inline-block;
-    max-width: 200px;
+    max-width: 220px;
     font-size:14px;
     font-family:PingFang;
     font-weight:400;
