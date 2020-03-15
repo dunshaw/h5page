@@ -72,7 +72,6 @@ $.ajax({
         $('.swiper-container2 .swiper-wrapper').append($(`
             <div class="swiper-slide">
                 <img src="../images/indexArticleIcon.png" alt="" class="q-headlines">
-                <span class="q-headlines-label">行业</span>
                 <span class="q-headlines-title">${res.body.records[i].title}</span>
             </div>
           `))
