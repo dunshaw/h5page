@@ -173,6 +173,7 @@
     font-weight:400;
     color:rgba(51,51,51,1);
     line-height:24px;
+    display: none;
 }
 .q-exhibition-icon{
     width: 12px;
@@ -244,4 +245,81 @@
 .q-more img{
     width: 9px;
     height: 17px;
+}
+.job-item{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+.jobInfoShell{
+    width: 100%;
+    display: flex;
+}
+.jobInfoLeft{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.jobInfoLeft .distance{
+    color: #2EA7E0;
+}
+.jobInfoLeft p{
+    line-height: 40px;
+}
+.jobInfoLeft span{
+    width:70px;
+    overflow:hidden;
+    font-size: 12px;
+    background: #F8F8F8;
+    color: #999;
+    text-align: center;
+    margin: 5px;
+    padding: 1px 2px;
+}
+.jobInfoRight{
+    width: 40%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.jobInfoRight span, .jobInfoRight p {
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+}
+.jobInfoLeft-addr{
+    font-size: 12px;
+}
+.jobInfoRight .salary{
+    color: #FF961E;
+}
+.jobInfoRight span{
+    border: 1px solid #FF961E;
+    color: #FF961E;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    width: 70px;text-align: center;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+.jobInfoRight .casen{
+    color: #70CC70;
+    border: 1px solid #70CC70;
+}
+
+.jobInfofoot{
+    margin:10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+.jobInfofoot .viewtime, .jobInfofoot .numb{
+    color: #2EA7E0;
 }
