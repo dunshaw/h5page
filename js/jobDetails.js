@@ -10,6 +10,9 @@ var id = getQueryArgs().id
 var relationId = getQueryArgs().relationId
 var scanCodeType = getQueryArgs().scanCodeType
 var type = getQueryArgs().type
+if(!type){
+    $('.q-bottom').hide()
+}
 const exp = /^1\d{10}$/;   //手机号正则
 let nowUrl = window.location.host;
 var imgIp;
@@ -477,8 +480,10 @@ $('.q-bottom button').click(function () {
 
 
 function itemclick() {
-  console.log('123')
-  $("#tishibox").toggle();
+    if(!type){
+        return false;
+    }
+    $("#tishibox").toggle();
 };
 
 

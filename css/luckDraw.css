@@ -8,14 +8,26 @@ li{
 }
 .q-bigbox{
     width: 100%;
-    height: auto;
-    background: url('../images/bg.png') no-repeat left top;
-    background-size: 100%;
-    overflow: hidden;
+    height: 100vh;
+    background: url('../images/bg5.png') no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    padding-top: 50px;
+}
+.q-back-box{
+    height: 30px;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 30px;
+    display: none;
+}
+.q-top-back{
+    width: 10px;
+    height: 17px;
 }
 .q-top-h2{
     width: 240px;
-    height: 34px;
+    /*height: 34px;*/
     margin: 10px auto 0;
 }
 .q-top-h2 img,.q-top-title img{
@@ -32,18 +44,24 @@ li{
     font-size:14px;
     font-family:PingFang;
     font-weight:400;
-    color:rgba(255,255,255,1);
-    background:rgba(48,129,210,1);
-    border:2px solid rgba(63,181,243,1);
+    color:#fff;
+    background:#FEA54D;
+    border:2px solid #fff;
     border-radius:15px;
     margin: 13px auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    letter-spacing: 1px;
+}
+.q-block1{
+    margin-bottom: 80px;
 }
 .q-choujiangqu-box{
-    margin: 20px 26px 0;
-    background: url('../images/choujiangqu.png') no-repeat; 
+    margin: 20px auto;
+    width: 325px;
+    height: 325px;
+    background: url('../images/choujiangqu2.png') no-repeat; 
     background-size: 100%;
     overflow: hidden;
 }
@@ -51,23 +69,28 @@ li{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 20px 15px 20px 15px;
+    margin: 10px 15px;
 }
 .q-choujiangqu li{
     width: 32%;
-    height: 85px;
-    background:rgba(252,255,250,1);
-    border-radius:9px;
+    height: 88px;
+    background:#fff;
+    border-radius:20px;
     /* flex-shrink:0; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 6px;
+    border-bottom: 6px solid rgba(255,140,104,1);
+}
+#q-choujiang-btn div{
+    margin-top: 15px;
 }
 .q-choujiangqu li img{
     width: 50px;
     height: 50px;
+    margin-top: 3px;
 }
 .q-choujiangqu li span{
     font-size:12px;
@@ -88,7 +111,7 @@ li{
 #q-choujiang-btn{
     background:rgba(253,180,103,1);
     box-shadow:0px 0px 5px 0px rgba(254,217,139,1);
-    border-radius:9px;
+    border-radius:20px;
     font-size: 24px;
     font-family:PingFang;
     font-weight:bold;
@@ -102,31 +125,35 @@ li{
     font-size:10px;
     font-weight:400;
     color:rgba(242,110,0,1);
+/*    margin-top: 10px;*/
 }
 .q-zhongjiangqu-box{
-    height: 100%;
-    margin: 0 26px;
-    background: url('../images/zhongjiangqu.png') no-repeat;
-    background-size: 100%;
-    overflow: hidden;
+    width: 325px;
+    height: 215px;
+    margin: 40px auto;
+    background: #F16C43;
+    border-radius: 18px;
+    /*background: url('../images/zhongjiangqu.png') no-repeat;*/
+    /*background-size: 100%;*/
+    /*overflow: hidden;*/
 }
 .q-zhongjiangqu-title{
-    width: 167px;
-    height: 30px;
-    background: url('../images/juxing.png') no-repeat;
-    background-size: 100%;
-    margin: 29px auto 0;
+    width: 179px;
+    height: 31px;
+    background: url('../images/juxing2.png') no-repeat center;
+    background-size: contain;
+    margin: 0 auto ;
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(-15px);
 }
 .q-zhongjiangqu-title span{
-    margin: 0 15px;
     font-size:16px;
     font-family:PingFang;
     font-weight:bold;
     color:rgba(255,255,255,1);
-    line-height:37px;
+    line-height:31px;
 }
 .q-zhongjiangqu-title img{
     width: 8px;
@@ -136,8 +163,8 @@ li{
     overflow: hidden;
 }
 .q-zhongjiang-conten{
-    height: 120px;
-    margin: 19px 0 60px 26px;
+    height: 180px;
+    margin: 0 0 0 26px;
     font-size:12px;
     font-family:PingFang;
     font-weight:400;
