@@ -132,12 +132,17 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
-                  let form = document.createElement('form');
-                  form.action = src;
-                  document.getElementsByTagName('body')[0].appendChild(form);
-                  form.submit();
-                  // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  let _hours = new Date().getHours(); 
+                  console.log(_hours)
+                  if(8<_hours<20){
+                    let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                    let form = document.createElement('form');
+                    form.action = src;
+                    document.getElementsByTagName('body')[0].appendChild(form);
+                    form.submit();
+                  }else{
+                    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  }
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
                 }
