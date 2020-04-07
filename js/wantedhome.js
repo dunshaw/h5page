@@ -169,7 +169,11 @@ $.ajax({
                       <img src="../images/toutiao.png" class="headrtoutiao" alt="">
                       <img src="${imgIp + data[i].companyLogo.sourcePath}" alt="" class="q-position-portrait">
                       <div>
-                          <div class="q-position-name">${data[i].job.name}</div>
+                          <div class="q-position-name">${data[i].job.name}
+                            <img src="../images/pugong.png" class="pugongicon"></img>
+                            <img src="../images/hotfire.png" class="hoticon"></img>
+                            <img src="../images/fuwenben.png" class="fuwenben"></img>
+                          </div>
                           <div class="q-position-company">${data[i].job.companyName}</div>
                       </div>
                   </div>
@@ -199,7 +203,17 @@ $.ajax({
                       已申请 <span class="q-interview-right-num"> ${data[i].job.applyNumber} </span>人
                   </div>
               </div>`)
-      
+
+      if(!data[i].job.general){
+        _div.find('.pugongicon').css('display','none')
+      }
+      if(!data[i].job.popular){
+        _div.find('.hoticon').css('display','none')
+      }
+      if(!data[i].job.isRichText){
+        _div.find('.fuwenben').css('display','none')
+      }
+
       if (data[i].labels) {
         if (data[i].labels.length > 3) {
           data[i].labels = data[i].labels.slice(0, 3)
@@ -349,9 +363,14 @@ function getlist(page) {
         <div class="q-positiondetails">
           <div class="q-position-headr">
               <img src="../images/tuijian.png" class="headrtoutiao" alt="">
+              <img class="headrtoutiao2" src="../images/gongxiang.png"></img>
               <img src="${imgIp + arr[i].companyLogo.sourcePath}" alt="" class="q-position-portrait">
               <div>
-                  <div class="q-position-name">${arr[i].job.name}</div>
+                  <div class="q-position-name">${arr[i].job.name}
+                    <img src="../images/pugong.png" class="pugongicon"></img>
+                    <img src="../images/hotfire.png" class="hoticon"></img>
+                    <img src="../images/fuwenben.png" class="fuwenben"></img>
+                  </div>
                   <div class="q-position-company">${arr[i].job.companyName}</div>
               </div>
           </div>
@@ -382,8 +401,20 @@ function getlist(page) {
       </div>
       `)
       
+      if(!arr[i].job.general){
+        _div.find('.pugongicon').css('display','none')
+      }
+      if(!arr[i].job.popular){
+        _div.find('.hoticon').css('display','none')
+      }
+      if(!arr[i].job.isRichText){
+        _div.find('.fuwenben').css('display','none')
+      }
       if(arr[i].job.showType!='recommend'){
         _div.find('.headrtoutiao').css('display','none')
+      }
+      if(arr[i].job.showType=='recommend' || arr[i].job.showType!='jobShared'){
+        _div.find('.headrtoutiao2').css('display','none')
       }
       if (arr[i].labels) {
         if (arr[i].labels.length > 3) {
