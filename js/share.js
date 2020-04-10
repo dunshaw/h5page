@@ -29,6 +29,7 @@ var str = location.search.split('?')[1];
 var relationId = getQueryArgs().relationId
 var jobId = getQueryArgs().id?getQueryArgs().id:''
 var scanCodeType = getQueryArgs().scanCodeType
+var nowHour = getQueryArgs().nowHour
 // var interviewTime = getQueryArgs().interviewTime
 
 var type = str.split('&')[1].split('=')[1];
@@ -132,9 +133,8 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  let _hours = new Date().getHours(); 
-                  console.log(_hours)
-                  if(8<_hours<20){
+                  console.log(nowHour)
+                  if(8<nowHour<20){
                     let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
                     let form = document.createElement('form');
                     form.action = src;
