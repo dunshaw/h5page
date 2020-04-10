@@ -413,7 +413,7 @@ function getlist(page) {
       if(arr[i].job.showType!='recommend'){
         _div.find('.headrtoutiao').css('display','none')
       }
-      if(arr[i].job.showType !='other' && !arr[i].job.jobShared){
+      if(arr[i].job.showType !='other' || !arr[i].job.jobShared){
         _div.find('.headrtoutiao2').css('display','none')
       }
       if (arr[i].labels) {
