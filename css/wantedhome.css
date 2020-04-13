@@ -288,7 +288,7 @@
     flex-direction: column;
     margin: 15px 15px 0;
 }
-.headrtoutiao{
+.headrtoutiao, .headrtoutiao2{
   width: 26px;
   height: 14px;
   position: absolute;
@@ -319,5 +319,11 @@
 .dianwoshezhi{
     color: #2EA7E0;
 }
-
+.pugongicon, .fuwenben{
+    width: 16px;
+    height: 16px;
+}
+.hoticon{
+    width: 14px;height: 16px;
+}
 
