@@ -458,7 +458,7 @@ $('.q-bottom button').click(function () {
                 console.log(aAndI)
                 if (aAndI == 'android') {
                     console.log(nowHour)
-                    if(8<parseInt(nowHour) && parseInt(nowHour)<20){
+                    if(7<parseInt(nowHour) && parseInt(nowHour)<21){
                         let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
                         let form = document.createElement('form');
                         form.action = src;
