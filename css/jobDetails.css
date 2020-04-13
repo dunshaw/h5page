@@ -1,3 +1,26 @@
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +28,6 @@
 .q-top-bigbox{
     width: 100%;
     height: 190px;
-    position: relative;
 }
 .q-top-contentbox{
     width: 100%;
@@ -31,10 +53,7 @@
 }
 .q-top-bg{
     width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+    height:100%;
 }
 /* .q-top-gongsi{
     width: 60px;
@@ -62,11 +81,15 @@
     z-index: 2;
 }
 .q-jobDetails{
+    margin-bottom: 80px;
     display: flex;
     flex-direction: column;
     width: 100%;
     background:rgba(255,255,255,1);
     border-radius:10px 10px 0px 0px;
+    margin-top: -5px;
+    position: relative;
+    z-index: 5;
 }
 .q-block1{
     margin: 30px 15px 0;
@@ -119,9 +142,9 @@
     align-items: center;
 }
 .q-salary{
-    font-size:20px;
+    font-size:12px;
     font-family:Akrobat;
-    font-weight:bold;
+    /*font-weight:bold;*/
     color:rgba(255,167,40,1);
     line-height:35px;
 }
@@ -145,6 +168,8 @@
 }
 .q-Interviewtime,.q-workingAddress{
     display: flex;
+    flex-direction:row;
+    align-items: flex-start; 
     line-height:35px;
 }
 .q-successsee{
@@ -154,7 +179,9 @@
     color:rgba(46,167,224,1);
     line-height:35px;
 }
+.q-Interviewtime-content{font-size: 14px;}
 .q-Interviewtime-title,.q-workingAddress-title{
+    width: 30%;
     font-size:14px;
     font-family:PingFang SC;
     font-weight:400;
@@ -162,13 +189,11 @@
 }
 .q-miansidizhi,.q-workadd{
     display: inline-block;
-    max-width: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 25px;
+    font-size: 14px;
 }
 .q-distance{
-    margin-left: 65px;
+    margin-left: 30%;
     font-size:12px;
     font-family:PingFang SC;
     font-weight:400;
@@ -385,6 +410,7 @@
 }
 .q-publisher{
     display: flex;
+    align-items: center;
     width: 100%;
     margin: 10px 0 25px 0;
 }
@@ -394,7 +420,7 @@
 }
 .q-p{
     margin-left: 11px;
-    width: 280px;
+    padding-right: 10px;
 }
 .q-p-name{
     font-size:16px;
@@ -420,16 +446,19 @@
     color:rgba(153,153,153,1);
 }
 .q-position-box{
+    font-size:14px;
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
 }
 .q-positiondetails{
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 .q-position-name{
-    font-size:16px;
+    font-size:14px;
     font-family:PingFang SC;
     font-weight:bold;
     color:rgba(51,51,51,1);
@@ -476,9 +505,9 @@
     align-items: flex-end;
 }
 .q-interview-right-xz{
-    font-size:16px;
+    font-size:14px;
     font-family:PingFang SC;
-    font-weight:bold;
+/*    font-weight:bold;*/
     color:rgba(255,150,30,1);
     line-height:20px;
 }
@@ -544,4 +573,76 @@
 .q-btn-sq{
     color:rgba(255,255,255,1);
     background:rgba(46,167,224,1);
+}
+#zhiweifabuzhe,#xiangsizhiwei,.zhiweifabuzhebox{display: none;}
+.q-bottom{
+    width: 100%;
+    position:fixed;
+    z-index: 10;
+    bottom: 0;
+    height: 70px;
+    background: #fff;
+    text-align: center;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.q-bottom input{
+    width: 70%;
+    height: 38px;
+    border: 1px solid #dcdcdc;
+    background: #eee;
+    margin-right: 10px;
+}
+.q-bottom input::-webkit-input-placeholder{
+    text-align: center;
+    font-size:12px;
+    font-weight:400;
+    color:#ccc;
+}
+.q-bottom button{
+    display: inline;
+    width: 20%;
+    height: 40px;
+    background:rgba(46,167,224,1);
+    border-radius:4px;
+    font-size:16px;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    border: none;
+    z-index: 10;
+}
+#tishibox{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1002;
+  display: none;
+}
+#tishibox>div{
+  width:80%;
+  height:120px;
+  margin: 200px auto;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#tishibox p{
+  height: 70px;
+  line-height: 70px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+#tishibox span{
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  color: #2CA7E0;
 }

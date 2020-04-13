@@ -72,8 +72,9 @@
     white-space:nowrap;
 }
 .q-headlines-title{
+    margin-left: 10px;
     display: inline-block;
-    max-width: 200px;
+    max-width: 220px;
     font-size:14px;
     font-family:PingFang;
     font-weight:400;
@@ -131,6 +132,7 @@
     flex-direction: column;
 }
 .q-position-headr{
+    position: relative;
     display: flex;
     margin-bottom: 10px; 
 }
@@ -212,7 +214,7 @@
     align-items: flex-end;
 }
 .q-interview-right-xz{
-    font-size:16px;
+    font-size:12px;
     font-family:PingFang SC;
     font-weight:bold;
     color:rgba(255,150,30,1);
@@ -226,8 +228,10 @@
     line-height:20px;
     border:1px solid rgba(255,172,76,1);
     border-radius:2px;
+    display: none;
 }
 .q-interview-right-type2{
+    display: none;
     font-size:10px;
     font-family:PingFang;
     font-weight:bold;
@@ -244,6 +248,7 @@
     line-height:20px;
     border:1px solid rgba(69,179,230,1);
     border-radius:2px;
+    margin-right: 5px;
 }
 .q-interview-women{
     font-size:10px;
@@ -252,6 +257,16 @@
     color:rgba(255,110,109,1);
     line-height:20px;
     border:1px solid rgba(255,110,109,1);
+    border-radius:2px;
+    margin-right: 5px;
+}
+.q-interview-tuijian{
+    font-size:10px;
+    font-family:PingFang;
+    font-weight:bold;
+    color: #FF961E;
+    line-height:20px;
+    border: 1px solid #FF961E;
     border-radius:2px;
 }
 .q-interview-right-ren{
@@ -268,8 +283,41 @@
     color:rgba(46,167,224,1);
     line-height:20px;
 }
-.q-position-block{
+.q-position-block,.q-position-block-top{
     display: flex;
     flex-direction: column;
     margin: 15px 15px 0;
 }
+.headrtoutiao{
+  width: 26px;
+  height: 14px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.q-recommend-set{
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+    font-family: PingFang;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+    line-height: 20px;
+    position: relative;
+}
+.q-recommend-set img{
+    width: 100%;
+    height: 60px;
+}
+.q-recommend-set-textbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dianwoshezhi{
+    color: #2EA7E0;
+}
+
+

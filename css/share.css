@@ -5,9 +5,9 @@
 .q-bigbox{
     width: 100%;
     height: 100%;
-    background: url('../images/bg2.png') no-repeat;
-    background-size: cover;
-    overflow: hidden;
+    background: url('../images/bg3.png') no-repeat;
+    background-size: contain;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
 }
@@ -21,39 +21,43 @@
 }
 .q-top-title{
     width: 245px;
-    height: 110px;
-    margin: 30px auto 0;
+    /*height: 110px;*/
+    margin: 20px auto 0;
 }
 .q-photo{
     width: 322px;
-    height: 310px;
+    /*height: 310px;*/
     margin: 25px auto 0;
 }
 .q-bottom{
-    width: 315px;
-    margin: 15px auto 30px;
-    align-self:flex-end;
-    /* position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%); */
+    width: 100%;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    height: 70px;
+    background: #fff;
+    text-align: center;
+    z-index: 1000;
 }
 .q-bottom input{
-    width: 100%;
-    height: 50px;
-    border: none;
+    width: 70%;
+    height: 38px;
+    border: 1px solid #dcdcdc;
+    background: #eee;
+    margin-right: 10px;
 }
 .q-bottom input::-webkit-input-placeholder{
     text-align: center;
-    font-size:16px;
-    font-family:PingFang SC;
+    font-size:12px;
     font-weight:400;
-    color:rgba(204,204,204,1);
+    color:#ccc;
 }
 .q-bottom button{
-    margin-top: 15px;
-    width: 100%;
-    height: 44px;
+    display: inline;
+    width: 20%;
+    height: 40px;
     background:rgba(46,167,224,1);
     border-radius:4px;
     font-size:16px;
@@ -61,4 +65,151 @@
     font-weight:400;
     color:rgba(255,255,255,1);
     border: none;
+}
+.content{
+    width: 100%;
+    background: #4584d5;
+    padding-bottom: 80px;
+    padding-top: 10px;
+}
+.content-item{
+    width: 95%;
+    /*height: 110px;*/
+    background: #fff;
+    border-radius: 16px;
+    margin: 8px auto;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+}
+.content-item-left{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /*justify-content: center;*/
+}
+.content-item-left-top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px;
+}
+
+.content-item-left-top h3,.content-item-left-top p{
+   width:170px;
+   overflow:hidden;
+   text-overflow:ellipsis;
+   white-space:nowrap;
+}
+.content-item-left-top p{color: #666;font-size: 14px;}
+.content-item-left-bottom{margin: 2px;}
+.q-position-label{
+    background:rgba(248,248,248,1);
+    border-radius:2px;
+    font-size:12px;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height:20px;
+    margin-right: 5px;
+}
+.content-item-right{
+    box-sizing: border-box;
+    padding-right: 1%;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: flex-end;
+}
+.content-item-right h3{
+  font-weight: normal;
+  font-size: 14px;
+  color: #ff961e;
+  margin-top: 5px;
+}
+.m_reward,.w_reward,.r_reward{
+  /* display: inline-block; */
+  width: 60px;
+  font-size: 12px;
+  padding: 2px 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px;
+  margin:5px;
+}
+.m_reward{
+  border: 1px solid #45B3E6;
+  color: #45B3E6;
+}
+.w_reward{
+  border: 1px solid #FF6E6D;
+  color: #FF6E6D;
+}
+.r_reward{
+  border: 1px solid #FF961E;
+  color: #FF961E;
+}
+.imgdiv{width: 60px;height: 60px;border-radius: 5px;margin-right: 10px;overflow:hidden;}
+.imgdiv img{
+   width: 60px;
+   height: 60px;
+}
+.jobnamediv h3{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.content-item-reward-bottom{display: flex;}
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
+#tishibox{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1002;
+  display: none;
+}
+#tishibox>div{
+  width:80%;
+  height:120px;
+  margin: 200px auto;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#tishibox p{
+  height: 70px;
+  line-height: 70px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+#tishibox span{
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+  color: #2CA7E0;
 }

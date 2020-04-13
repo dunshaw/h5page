@@ -1,5 +1,20 @@
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
-const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
+
+var nowUrl = window.location.host;
+var imgIp;
+var _URL;
+console.log(nowUrl)
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
+}else if(nowUrl=='47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}
+else{
+    imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com/'
+}
+
 
 //获取临时token
 var token = location.search.split('?')[1].split('=')[1];

@@ -1,5 +1,15 @@
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
-const imgIp = 'https://img.quanjikj.com/'   // 图片服务器地址
+let nowUrl = window.location.host;
+var imgIp;
+var _URL;
+console.log(nowUrl)
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com'
+}else{
+    imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com'
+}
+
 // 轮播
 setTimeout(function () {
   var mySwiper = new Swiper('.swiper-container', {
@@ -28,15 +38,15 @@ $.ajax({
 // 获取评论
 let comments = [] //评论列表
 $.ajax({
-  url:  '/api/community/list',
+  url:  '/api/community/list?lng=104.0647&lat=30.5702',
   type: 'get',
   success: function (res) {
+    console.log(res)
     if (res.body.length != 0) {
       for (let i = 0; i < res.body.length; i++) {
         if (res.body[i].commentList.length) {
           comments.push(res.body[i].commentList)
         }
-
         //判断自己是否点赞
         if (res.body[i].isLike) {
           $('.q-block4-faandcom-left img').attr('src', '../images/zany.png')
@@ -102,12 +112,12 @@ $.ajax({
           // item = 
           $('.q-block4-comment').eq(i).append(`
             <div class="q-block4-comment1">
-                <span class="q-block4-comment-user">${res.body[i].commentList[j].commentUser}</span>
+                <span class="q-block4-comment-user">${res.body[i].commentList[j].commentUser}：</span>
                 <span class="q-block4-comment-text">${res.body[i].commentList[j].content}</span>
               </div>
             `)
         }
-        if (res.body[i].commentList.length > 3) {
+        if (res.body[i].commentList.length != 0) {
           // 超出隐藏
           $('.item').eq(i).append(`
             <div class="q-block4-seeall">
@@ -116,30 +126,40 @@ $.ajax({
           `)
         }
       }
-      // 提取content存入arr
-      let arr = []
-      for (let index = 0; index < comments.length; index++) {
-        const element = comments[index];
-        for (let index = 0; index < element.length; index++) {
-          const element1 = element[index];
-          if (element1.content) {
-            arr.push(element1.content)
-          }
-        }
-      }
-      let num = 0
-      danmu(arr[0], 0)
-      const timer = setInterval(() => {
-        num++
-        if (num === arr.length + 1) {
-          num = 0
-          // clearInterval(timer)
-          $('.q-block3-contentbox').empty()
-        }
-        danmu(arr[num], num)
-      }, 500);
+      // // 提取content存入arr
+      // let arr = []
+      // for (let index = 0; index < comments.length; index++) {
+      //   const element = comments[index];
+      //   for (let index = 0; index < element.length; index++) {
+      //     const element1 = element[index];
+      //     if (element1.content) {
+      //       arr.push(element1.content)
+      //     }
+      //   }
+      // }
+      // let num = 0
+      // // danmu(arr[0], 0)
+      // const timer = setInterval(() => {
+      //   num++
+      //   if (num === arr.length ) {
+      //     num = 0
+      //     // clearInterval(timer)
+      //     $('.q-block3-contentbox').empty()
+      //   }
+      //   danmu(arr[num], num)
+      // }, 1000);
 
     }
+  }
+})
+
+// 获取弹幕
+$.ajax({
+  url:  '/api/community/hotlist',
+  type: 'get',
+  success: function (res) {
+    console.log(res)
+
   }
 })
 
@@ -148,7 +168,7 @@ $('.swiper-wrapper').on('click', '.swiper-slide', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -160,7 +180,7 @@ $('.q-block2').on('click', '.q-block2-job', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -172,7 +192,7 @@ $('.q-block4-titleshe').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -184,7 +204,7 @@ $('.q-block4-titlesee').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -196,7 +216,7 @@ $('.q-block4-con').click(function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -209,7 +229,7 @@ $('.q-bottom').on('click', '.q-bottom-tab', function () {
   if (aAndI == 'android') {
     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
   } else if (aAndI == 'ios') {
-    alert('苹果客户端暂未开放，敬请期待！')
+    window.location.href='https://apps.apple.com/cn/app/id1485685440'
   } else {
     alert('请在移动端打开该网页')
     return
@@ -240,5 +260,5 @@ function danmu(content, num) {
   const tops = ['0%', '25%', '75%', '100%']
   $('.q-block3-contentbox').append(`<span class="q-block3-c"> ${content}~</span>`)
   $('.q-block3-c').eq(num).css({ 'top': tops[Math.floor(Math.random() * 4)] })
-  $('.q-block3-c').eq(num).animate({ 'left': '-100%', }, 10000, 'linear')
+  $('.q-block3-c').eq(num).animate({ 'left': '-100%', }, 5000, 'linear')
 }

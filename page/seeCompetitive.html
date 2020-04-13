@@ -8,6 +8,12 @@
     <title>职池招聘</title>
     <script>
         function callAndroid(){
+            try {
+                //使用此方法,会报错,因此使用try-catch
+                window.webkit.messageHandlers.resdetail.postMessage('');
+            } catch(error) {
+                console.log('WKWebView post message');
+            }
             test.hello('调用了')
         }
     </script>
