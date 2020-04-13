@@ -29,6 +29,7 @@ var str = location.search.split('?')[1];
 var relationId = getQueryArgs().relationId
 var jobId = getQueryArgs().id?getQueryArgs().id:''
 var scanCodeType = getQueryArgs().scanCodeType
+var nowHour = getQueryArgs().nowHour
 // var interviewTime = getQueryArgs().interviewTime
 
 var type = str.split('&')[1].split('=')[1];
@@ -132,12 +133,16 @@ $('.q-bottom button').click(function () {
                 let aAndI = detect()
                 console.log(aAndI)
                 if (aAndI == 'android') {
-                  let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
-                  let form = document.createElement('form');
-                  form.action = src;
-                  document.getElementsByTagName('body')[0].appendChild(form);
-                  form.submit();
-                  // window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  console.log(nowHour)
+                  if(7<parseInt(nowHour) && parseInt(nowHour)<21){
+                    let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                    let form = document.createElement('form');
+                    form.action = src;
+                    document.getElementsByTagName('body')[0].appendChild(form);
+                    form.submit();
+                  }else{
+                    window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+                  }
                 }else if(aAndI =='ios'){
                   window.location.href='https://apps.apple.com/cn/app/id1485685440'
                 }
