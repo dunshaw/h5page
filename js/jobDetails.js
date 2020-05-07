@@ -497,7 +497,13 @@ $('.q-bottom button').click(function () {
 
 function itemclick() {
     if(!type){
-        return false;
+        let aAndI = detect()
+        if (aAndI == 'android') {
+            window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+        }else if(aAndI =='ios'){
+          window.location.href='https://apps.apple.com/cn/app/id1485685440'
+        }
+        return
     }
     $("#tishibox").toggle();
 };
