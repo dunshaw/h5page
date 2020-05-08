@@ -105,3 +105,15 @@ function getQueryArgs() {
     }
     return args;
 }
+
+// ios输入框ui还原
+function iptblur(){
+    var u = navigator.userAgent;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isiOS) { // 判断是否为IOS系统
+     setTimeout(() => {
+           const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+           window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+    }, 100);
+    }   
+}
