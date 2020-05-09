@@ -239,6 +239,8 @@ $.ajax({
         requirements = res.body.requirements;
         publisher = res.body.publisher;
         similarJobList = res.body.similarJobList;
+        $('.shangbanshijian').html(a.workingTime?a.workingTime:'无');
+        $('.wuxiu').html(a.wuxiu);
         $('.q-jobTitle').html(job.name);
         $('.q-jobaddress').html(job.area);
         $('.q-educational').html(job.xueliyaoqiu);
