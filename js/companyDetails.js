@@ -60,7 +60,7 @@ $(window).resize(function () {
 $('.q-top-back').click(function () {
     history.back()
 })
-$('.q-top-fx').click(function () {
+$('.q-top-bigbox').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
@@ -71,7 +71,7 @@ $('.q-top-fx').click(function () {
         return
     }
 })
-$('.q-top-gongsi').click(function () {
+$('.q-introduction').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
@@ -82,7 +82,7 @@ $('.q-top-gongsi').click(function () {
         return
     }
 })
-$('.q-top-bg').click(function () {
+$('.q-division').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
@@ -93,7 +93,7 @@ $('.q-top-bg').click(function () {
         return
     }
 })
-$('.q-follow').click(function () {
+$('.q-introduce').click(function () {
     let aAndI = detect()
     if (aAndI == 'android') {
         window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
