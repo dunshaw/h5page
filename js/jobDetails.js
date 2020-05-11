@@ -239,6 +239,8 @@ $.ajax({
         requirements = res.body.requirements;
         publisher = res.body.publisher;
         similarJobList = res.body.similarJobList;
+        $('.shangbanshijian').html(a.workingTime?a.workingTime:'无');
+        $('.wuxiu').html(a.wuxiu);
         $('.q-jobTitle').html(job.name);
         $('.q-jobaddress').html(job.area);
         $('.q-educational').html(job.xueliyaoqiu);
@@ -306,7 +308,19 @@ $.ajax({
         $('.q-tSupplement').html(job.companyWelfare)
         $('.q-worksupplement').html(job.workingTimeDesc)
         $('.q-operatingDuty').html(job.jobDuty)
+        if(job.jobDuty.length > 40){
+            $('.q-operatingDuty').addClass('closebox');
+            $('.bot2').show()
+        }else if(job.jobDuty.length == 0){
+            $('.q-operatingDuty').addClass('nonebox');
+        }
         $('.q-recruitconten').html(job.jobRequire)
+        if(job.jobRequire.length > 40){
+            $('.q-recruitconten').addClass('closebox');
+            $('.bot4').show()
+        }else if(job.jobRequire.length == 0){
+            $('.q-recruitconten').addClass('nonebox');
+        }
         $('.q-gsAbbreviation').html(company.alias)
         $('.q-name span').html(company.name)
         $('.q-gsregion').html(company.city)
@@ -458,7 +472,7 @@ $('.q-bottom button').click(function () {
                 console.log(aAndI)
                 if (aAndI == 'android') {
                     console.log(nowHour)
-                    if(7<parseInt(nowHour) && parseInt(nowHour)<21){
+                    if(7<parseInt(nowHour) && parseInt(nowHour)<20){
                         let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
                         let form = document.createElement('form');
                         form.action = src;
@@ -485,7 +499,13 @@ $('.q-bottom button').click(function () {
 
 function itemclick() {
     if(!type){
-        return false;
+        let aAndI = detect()
+        if (aAndI == 'android') {
+            window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
+        }else if(aAndI =='ios'){
+          window.location.href='https://apps.apple.com/cn/app/id1485685440'
+        }
+        return
     }
     $("#tishibox").toggle();
 };
@@ -522,4 +542,27 @@ $('.q-bottom-btn').click(function () {
 
 function isWeixin () {
   return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+}
+
+function downbox(type){
+    if(type=='duty'){
+        $('.bot2').hide()
+        $('.bot1').show()
+        $('.q-operatingDuty').removeClass('closebox');
+    }else{
+        $('.bot4').hide()
+        $('.bot3').show()
+        $('.q-recruitconten').removeClass('closebox');
+    }
+}
+function closebox(type){
+    if(type=='duty'){
+        $('.bot1').hide()
+        $('.bot2').show()
+        $('.q-operatingDuty').addClass('closebox');
+    }else{
+        $('.bot3').hide()
+        $('.bot4').show()
+        $('.q-recruitconten').addClass('closebox');
+    }
 }
