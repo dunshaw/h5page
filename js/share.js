@@ -30,7 +30,7 @@ var relationId = getQueryArgs().relationId
 var jobId = getQueryArgs().id?getQueryArgs().id:''
 var scanCodeType = getQueryArgs().scanCodeType
 var nowHour = getQueryArgs().nowHour
-// var interviewTime = getQueryArgs().interviewTime
+var interviewTime = getQueryArgs().interviewTime
 
 var type = str.split('&')[1].split('=')[1];
 
@@ -125,7 +125,7 @@ $('.q-bottom button').click(function () {
                 type: type,
                 phone: $('.q-bottom input').val(),
                 jobId: jobId,
-                interviewTime:'',
+                interviewTime:interviewTime,
                 scanCodeType:scanCodeType
             },
             success: function (res) {
