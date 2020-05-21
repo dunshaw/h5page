@@ -239,7 +239,11 @@ $.ajax({
         requirements = res.body.requirements;
         publisher = res.body.publisher;
         similarJobList = res.body.similarJobList;
-        $('.shangbanshijian').html(a.workingTime?a.workingTime:'无');
+        if(a.workingTime){
+            $('.shangbanshijian').html(a.workingTime);
+            $('.show1').show();
+        }
+        
         $('.wuxiu').html(a.wuxiu);
         $('.q-jobTitle').html(job.name);
         $('.q-jobaddress').html(job.area);
@@ -473,7 +477,7 @@ $('.q-bottom button').click(function () {
                 if (aAndI == 'android') {
                     console.log(nowHour)
                     if(7<parseInt(nowHour) && parseInt(nowHour)<20){
-                        let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                        let src = 'https://download.jobpoolhr.com/jobpoolhr-luodiye.apk';
                         let form = document.createElement('form');
                         form.action = src;
                         document.getElementsByTagName('body')[0].appendChild(form);
