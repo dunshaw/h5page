@@ -135,7 +135,7 @@ $('.q-bottom button').click(function () {
                 if (aAndI == 'android') {
                   console.log(nowHour)
                   if(7<parseInt(nowHour) && parseInt(nowHour)<21){
-                    let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                    let src = 'https://download.jobpoolhr.com/jobpoolhr-luodiye.apk';
                     let form = document.createElement('form');
                     form.action = src;
                     document.getElementsByTagName('body')[0].appendChild(form);
