@@ -30,29 +30,28 @@ $('.q-ela-tps-btn').click(function () {
                 referrerUserId: referrerUserId
             },
             success: function (res) {
-                if (res.code == 200) {
-                    let aAndI = detect();
-                    console.log(aAndI)
-                    if (aAndI == 'android') {
-                        console.log(nowHour)
-                        if(7<parseInt(nowHour) && parseInt(nowHour)<20){
-                            let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
-                            let form = document.createElement('form');
-                            form.action = src;
-                            document.getElementsByTagName('body')[0].appendChild(form);
-                            form.submit();
-                        }else{
-                            window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
-                        }
-                    }else if(aAndI =='ios'){
-                      window.location.href='https://apps.apple.com/cn/app/id1485685440'
+                console.log(res);
+            },
+            complete:function(){
+                let aAndI = detect();
+                console.log(aAndI)
+                if (aAndI == 'android') {
+                    console.log(nowHour)
+                    if(7<parseInt(nowHour) && parseInt(nowHour)<20){
+                        let src = 'https://download.jobpoolhr.com/jobpoolhr.apk';
+                        let form = document.createElement('form');
+                        form.action = src;
+                        document.getElementsByTagName('body')[0].appendChild(form);
+                        form.submit();
+                    }else{
+                        window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                     }
-                    else {
-                        alert('请在移动端打开该网页')
-                        return
-                    }
-                } else {
-                    alert(res.msg);
+                }else if(aAndI =='ios'){
+                  window.location.href='https://apps.apple.com/cn/app/id1485685440'
+                }
+                else {
+                    alert('请在移动端打开该网页')
+                    return
                 }
             }
         })
