@@ -209,6 +209,7 @@
     align-items: flex-end;
 }
 .q-interview-right-top{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
