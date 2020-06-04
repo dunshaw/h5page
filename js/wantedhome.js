@@ -250,6 +250,7 @@ $.ajax({
 // 获取职位
 let arr = []
 let pages = 0
+let current;
 $.ajax({
   url:  '/api/job/list',
   type: 'get',
@@ -262,10 +263,8 @@ $.ajax({
   success: function (res) {
     console.log(res)
     pages = res.body.pages
-    if (res.body.current <= pages) {
-      arr = [...res.body.records]
-      getlist(res.body.current + 1)
-    }
+    current = res.body.current;
+    setArrdata([...res.body.records])
   }
 })
 function getlist(page) {
@@ -281,12 +280,13 @@ function getlist(page) {
       },
       success: function (res) {
         console.log(res)
-        arr = [...arr, ...res.body.records]
-        getlist(page + 1)
+        setArrdata([...res.body.records])
       }
     })
   }
-  else {
+}
+
+function setArrdata(arr){
     let newArr = []
     for (let index = 0; index < arr.length; index++) {
       if (newArr.indexOf(arr[index].job.id) == -1) {
@@ -443,8 +443,6 @@ function getlist(page) {
       let _div2 = $('<div class="q-division"></div>')
       $('.q-position-block').append(_div2)
     }
-  }
-
 }
 
 $('.swiper-wrapper').on('click', '.swiper-slide', function () {
@@ -549,4 +547,93 @@ function detect() {
     equipmentType = "windows";
   }
   return equipmentType;
+}
+//文档高度
+
+function getDocumentTop() {
+
+  var scrollTop = 0,
+
+  bodyScrollTop = 0,
+
+  documentScrollTop = 0;
+
+  if (document.body) {
+
+    bodyScrollTop = document.body.scrollTop;
+
+  }
+
+  if (document.documentElement) {
+
+    documentScrollTop = document.documentElement.scrollTop;
+
+  }
+
+  scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+
+  return scrollTop;
+
+}
+//可视窗口高度
+
+function getWindowHeight() {
+
+  var windowHeight = 0;
+
+  if (document.compatMode == "CSS1Compat") {
+
+    windowHeight = document.documentElement.clientHeight;
+
+  } else {
+
+    windowHeight = document.body.clientHeight;
+
+  }
+
+  return windowHeight;
+
+}
+
+//滚动条滚动高度
+
+function getScrollHeight() {
+
+  var scrollHeight = 0,
+
+  bodyScrollHeight = 0,
+
+  documentScrollHeight = 0;
+
+  if (document.body) {
+
+    bodyScrollHeight = document.body.scrollHeight;
+
+  }
+
+  if (document.documentElement) {
+
+    documentScrollHeight = document.documentElement.scrollHeight;
+
+  }
+
+    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+
+  return scrollHeight;
+
+}
+
+//下面我们需要一个监听滚动条的事件
+
+window.onscroll = function () {
+
+  //当滚动条移动马上就出发我们上面定义的事件触发函数,但是我们要求的是滚动条到底后才触发,所以自然这个触发事件里面需要逻辑控制一下.
+
+  if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
+      if (current <= pages) {
+        current = current+1
+        getlist(current)
+      }
+    }
+
 }
