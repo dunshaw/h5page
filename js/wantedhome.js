@@ -153,6 +153,9 @@ $.ajax({
         case 'betweenTwoAndThreeYears':
           data[i].job.workingYears = '2-3年'
           break;
+        case 'betweenOneAndThreeYears':
+          data[i].job.workingYears = '1-3年'
+          break;
         case 'betweenThreeAndFiveYears':
           data[i].job.workingYears = '3-5年'
           break;
@@ -250,7 +253,7 @@ $.ajax({
 // 获取职位
 let arr = []
 let pages = 0
-let current;
+let current = 1;
 $.ajax({
   url:  '/api/job/list',
   type: 'get',
@@ -258,7 +261,8 @@ $.ajax({
     cityCode: cdcode,
     lng: _lng,
     lat: _lat,
-    homeFlag: true
+    homeFlag: true,
+    pageNum: current
   },
   success: function (res) {
     console.log(res)
@@ -276,6 +280,7 @@ function getlist(page) {
         cityCode: cdcode,
         lng: _lng,
         lat: _lat,
+        homeFlag: true,
         pageNum: page
       },
       success: function (res) {
@@ -347,6 +352,9 @@ function setArrdata(arr){
           break;
         case 'betweenTwoAndThreeYears':
           arr[i].job.workingYears = '2-3年'
+          break;
+        case 'betweenOneAndThreeYears':
+          arr[i].job.workingYears = '1-3年'
           break;
         case 'betweenThreeAndFiveYears':
           arr[i].job.workingYears = '3-5年'
