@@ -493,6 +493,7 @@
     font-weight:400;
     color:rgba(153,153,153,1);
     line-height:20px;
+    margin-right:3px;
 }
 .q-interview-t{
     font-size:12px;
@@ -657,3 +658,24 @@
   color: #2CA7E0;
 }
 .show1{display: none;}
+.fuwuliuchengbox{
+    margin:10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fwlcItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.processImg{
+  width: 16px;
+  height: 16px;
+}
+.pre-y{
+  width: 10px;
+  height: 8px;
+}

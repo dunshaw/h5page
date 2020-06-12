@@ -136,6 +136,18 @@ $.ajax({
                 a['wuxiu'] = "无";
                 break;
         }
+        switch (a.workSystem) {
+            case 'byDay':
+                a['banzhileixing'] = "长白班";
+                break;
+            case 'twoTurn':
+                a['banzhileixing'] = "两班倒";
+                break;
+            case 'threeTurn':
+                a['banzhileixing'] = "三班倒";
+                break;
+        }
+        
 
         if (a.interviewTime != null) {
             let str = "周";
@@ -243,8 +255,11 @@ $.ajax({
             $('.shangbanshijian').html(a.workingTime);
             $('.show1').show();
         }
-        
+        if(a.workSystem != 'byDay'){
+            $('#banzhileixingbox').hide()
+        }   
         $('.wuxiu').html(a.wuxiu);
+        $('.banzhileixing').html(a.banzhileixing);
         $('.q-jobTitle').html(job.name);
         $('.q-jobaddress').html(job.area);
         $('.q-educational').html(job.xueliyaoqiu);
@@ -266,6 +281,8 @@ $.ajax({
         }
         if(job.type=='online'){
             $('#mianshidizhi').hide()
+            $('.fwlc-baoming').html('公司邀约');
+            $('.fwlc-kefu').html('免费投递')
         }
         // if(job.type=='scene'){
         //     $('.q-workingAddress').hide()
@@ -403,8 +420,11 @@ $.ajax({
                     </div>
                     `)
 
-                for (let i = 0; i < similarJobList[i].labels.length; i++) {
-                    _div.find('.q-position-fl').append(`<span class="q-position-label">${similarJobList[i].labels[i]}</span>`)
+                for (let b = 0; b < similarJobList[i].labels.length; b++) {
+                    _div.find('.q-position-fl').append(`<span class="q-position-label">${similarJobList[i].labels[b]}</span>`)
+                    if(b==2){
+                        break
+                    }
                 }
                 $('#xiangsizhiwei').append(_div);
             }
