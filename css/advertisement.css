@@ -2,9 +2,7 @@
 	margin: 0;padding: 0;
 }
 .q-bigbox{
-	width: 100%;
-    height: 100%;
-    min-height: 1078px;
+	height: 1078px;
     background: url('../images/adverbg.png') no-repeat;
     background-size: 100% 100%;
 }
@@ -12,29 +10,29 @@
 	text-align: center;
 }
 .logo{
-	width: 81px;
+	width: 6rem;
 	margin: 0 auto;
-	margin-top: 44px;
+	margin-top: 3rem;
 }
 .wenan{
-	width: 344px;
-	margin: 12px 0;
+	width: 25rem;
+	margin: 1rem 0;
 }
 .xiazai{
-	width: 184px;
+	width: 12rem;
 	margin: 5px 0;
 }
 .content{
 	width: 100%;
-	margin-top: 30px;
+	margin-top: 3rem;
 }
 .botbox{
-	margin-top: 70px;
+	margin-top: 6rem;
 	text-align: center;
 }
 .bottext{
-	margin-top: 10px;
-	font-size: 12px;
+	margin-top: 1rem;
+	font-size: 1rem;
 	color: #fff;
 	text-align: center;
 	font-weight: 500;
@@ -48,16 +46,16 @@
   display: none;
 }
 .zhishi{
-  width: 60px;
-  height: 84px;
+  width: 5rem;
+  height: 7rem;
   position: absolute;
   right: 10px;
   top: 5px;
 }
 .yindaoyu{
-  width: 240px;
+  width: 20rem;
   position:absolute; 
-  top: 100px;
+  top: 8rem;
   left: 0;right: 0;
   margin: 0 auto;
 }
