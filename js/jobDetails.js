@@ -281,8 +281,8 @@ $.ajax({
         }
         if(job.type=='online'){
             $('#mianshidizhi').hide()
-            $('.fwlc-baoming').html('公司邀约');
-            $('.fwlc-kefu').html('免费投递')
+            $('.fwlc-baoming').html('免费投递');
+            $('.fwlc-kefu').html('公司邀约');
         }
         // if(job.type=='scene'){
         //     $('.q-workingAddress').hide()
