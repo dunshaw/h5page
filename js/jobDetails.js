@@ -135,6 +135,8 @@ $.ajax({
             case 'no':
                 a['wuxiu'] = "无";
                 break;
+            default:
+                a['wuxiu'] = "";
         }
         switch (a.workSystem) {
             case 'byDay':
@@ -256,9 +258,12 @@ $.ajax({
             $('.show1').show();
         }
         if(a.workSystem != 'byDay'){
-            $('#banzhileixingbox').hide()
-        }   
+            $('.banzhileixingbox').hide()
+        }  
         $('.wuxiu').html(a.wuxiu);
+        if(a.wuxiu==''){
+            $('.wuxiu').hide();
+        } 
         $('.banzhileixing').html(a.banzhileixing);
         $('.q-jobTitle').html(job.name);
         $('.q-jobaddress').html(job.area);
