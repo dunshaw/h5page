@@ -12,7 +12,9 @@ var scanCodeType = getQueryArgs().scanCodeType
 var nowHour = getQueryArgs().nowHour
 var type = getQueryArgs().type
 if(!type){
-    $('.q-bottom').hide()
+    $('.hastype').hide()
+}else{
+    $('.noty').hide()
 }
 const exp = /^1\d{10}$/;   //手机号正则
 let nowUrl = window.location.host;
@@ -482,7 +484,7 @@ function getQueryArgs() {
     return args;
 }
 
-$('.q-bottom button').click(function () {
+$('.hastypeDown').click(function () {
     if (exp.test($('.q-bottom input').val())) {
         $.ajax({
             url:  '/api/shareQrCode/save',
