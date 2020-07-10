@@ -17,7 +17,7 @@ if(nowUrl=='apptest.jobpoolhr.com'){
     _URL = 'http://47.108.24.6:8100/'
     imgIp =''
 }
-else{
+else{   
     imgIp = 'https://img.jobpoolhr.com/'
     _URL = 'https://app.jobpoolhr.com/'
 }
@@ -43,23 +43,19 @@ $(window).resize(function() {
 });
 
 //判断当前设备是安卓还是ios
-function detect() {
-    var equipmentType = "";
-    var agent = navigator.userAgent.toLowerCase();
-    var android = agent.indexOf("android");
-    var iphone = agent.indexOf("iphone");
-    var ipad = agent.indexOf("ipad");
-    var win = agent.indexOf("windows");
-    if (android != -1) {
-        equipmentType = "android";
-    }
-    if (iphone != -1 || ipad != -1) {
-        equipmentType = "ios";
-    }
-    if (win != -1) {
-        equipmentType = "windows";
-    }
-    return equipmentType;
+function detect(){
+   var equipmentType = "";
+   var agent = navigator.userAgent.toLowerCase();
+   var android = agent.indexOf("android");
+   var iphone = agent.indexOf("iphone");
+   var ipad = agent.indexOf("ipad");
+   if(android != -1){
+       equipmentType = "android";
+   }
+   if(iphone != -1 || ipad != -1){
+       equipmentType = "ios";
+   }
+   return equipmentType;
 }
 
 $.ajax({
@@ -132,7 +128,9 @@ $('.q-bottom button').click(function () {
                 console.log(res)
                 let aAndI = detect()
                 console.log(aAndI)
-                if (aAndI == 'android') {
+                if(aAndI =='ios'){
+                  window.location.href='https://apps.apple.com/cn/app/id1485685440'
+                }else{
                   console.log(nowHour)
                   if(7<parseInt(nowHour) && parseInt(nowHour)<21){
                     let src = 'https://download.jobpoolhr.com/jobpoolhr-luodiye.apk';
@@ -143,12 +141,6 @@ $('.q-bottom button').click(function () {
                   }else{
                     window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.magic.baohangperson&channel=0002160650432d595942&fromcase=60001')
                   }
-                }else if(aAndI =='ios'){
-                  window.location.href='https://apps.apple.com/cn/app/id1485685440'
-                }
-                else {
-                    alert('请在移动端打开该网页')
-                    return
                 }
             }
         })
