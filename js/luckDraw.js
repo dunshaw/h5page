@@ -144,7 +144,7 @@ $('.q-choujiangqu').on('click', '#q-choujiang-btn', function () {
                     count = res.body.count;
                     $('#intergral').html(integral);;
                     if(count == 0){
-                        $('#q-choujiang-btn span').text(`（使用10积分）`);
+                        $('#q-choujiang-btn span').text(`（使用10工钱）`);
                     }else{
                         $('#q-choujiang-btn span').text(`今日剩余免费次数${count}次`);
                     }
