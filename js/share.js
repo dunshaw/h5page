@@ -16,10 +16,13 @@ if(nowUrl=='apptest.jobpoolhr.com'){
 }else if(nowUrl=='47.108.24.6:8100'){
     _URL = 'http://47.108.24.6:8100/'
     imgIp =''
-}
-else{   
+}else if(nowUrl=='download.jobpoolhr.com'){
     imgIp = 'https://img.jobpoolhr.com/'
-    _URL = 'https://app.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com'
+    
+}else{
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
 }
 
 

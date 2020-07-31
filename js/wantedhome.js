@@ -4,12 +4,18 @@ var _URL;
 console.log(nowUrl)
 if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp ='https://imgtest.jobpoolhr.com/'
-    _URL = 'https://apptest.jobpoolhr.com'
-}else{
+    _URL = 'https://apptest.jobpoolhr.com/'
+}else if(nowUrl=='47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}else if(nowUrl=='download.jobpoolhr.com'){
     imgIp = 'https://img.jobpoolhr.com/'
     _URL = 'https://app.jobpoolhr.com'
+    
+}else{
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
 }
-
 
 var mySwiper = new Swiper('.swiper-container', {
   // direction: 'vertical', // 垂直切换选项

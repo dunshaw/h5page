@@ -93,11 +93,11 @@ li{
     margin-top: 3px;
 }
 .q-choujiangqu li span{
+    text-align: center;
     font-size:12px;
     font-family:PingFang;
     font-weight:bold;
     color:rgba(153,153,153,1);
-    line-height:38px;
 }
 .q-choujiang-column{
     margin-top: -10px;
@@ -125,7 +125,7 @@ li{
     font-size:10px;
     font-weight:400;
     color:rgba(242,110,0,1);
-/*    margin-top: 10px;*/
+    margin-bottom: 5px;
 }
 .q-zhongjiangqu-box{
     width: 325px;

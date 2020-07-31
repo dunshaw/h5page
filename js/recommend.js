@@ -1,5 +1,19 @@
 const exp = /^1\d{10}$/;   //手机号正则
-const _URL = 'https://tiger.quanjikj.com'; //服务器地址
+var nowUrl = window.location.host;
+if(nowUrl=='apptest.jobpoolhr.com'){
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
+}else if(nowUrl=='47.108.24.6:8100'){
+    _URL = 'http://47.108.24.6:8100/'
+    imgIp =''
+}else if(nowUrl=='download.jobpoolhr.com'){
+    imgIp = 'https://img.jobpoolhr.com/'
+    _URL = 'https://app.jobpoolhr.com'
+    
+}else{
+    imgIp ='https://imgtest.jobpoolhr.com/'
+    _URL = 'https://apptest.jobpoolhr.com/'
+}
 var referrerUserId = location.search.split('?')[1].split('&')[0].split('=')[1]
 console.log(referrerUserId)
 var h = window.screen.height;
