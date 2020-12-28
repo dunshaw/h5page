@@ -1,5 +1,12 @@
 
-let aAndI = detect()
+let aAndI = detect();
+if (aAndI == 'android') {
+  console.log('android')
+  if(isWeixin()){
+    $('.wxmodel').css('display','block');
+  }
+}
+
 var myDate = new Date();
 var nowHour = myDate.getHours(); //获取当前小时数(0-23)
 console.log(nowHour)
@@ -39,7 +46,13 @@ $('.btnBox').click(function () {
   }
 })
 
-
+function isWeixin () {
+  if (navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1){
+    console.log("微信内置浏览器");
+    return true
+  }
+  return false 
+}
 
 
 
