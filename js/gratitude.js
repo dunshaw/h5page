@@ -1,4 +1,17 @@
+// 如果看不懂js写了什么，也不用管，固定写法，写进去就可以用了
+window.onload = function(){
+  /* 第一个参数是你想让 1rem 等于多少像素，第二个参数是设计稿的宽度 */
+  getRem(50,750)
+};
+window.onresize = function(){
+  getRem(50,750)
+};
+function getRem(prem,pwidth){
+  var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+  document.documentElement.style.fontSize = prem/pwidth*oWidth + "px";
+}
 
+$('.light').css({"width":"21vw","height":"21vw",'top':'121vw'})
 let aAndI = detect();
 if (aAndI == 'android') {
   console.log('android')
