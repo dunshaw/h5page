@@ -18,3 +18,71 @@
   z-index: 10;
   /* border: 1px solid #000; */
 }
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
+.light{
+  /* width: 90px;
+  height: 90px; */
+  border-radius: 100%;
+  /* border: 1px solid #000; */
+  position: absolute;
+  top: 41%;
+  left:50%;
+  transform:translateX(-48%);
+  background: inherit;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+*, *:before, *:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; }
+.light:before{
+content:"";
+position: absolute;
+width: 110px;
+height: 10px;
+background-color: rgba(255,255,255,.5);
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+-webkit-animation: searchLights 1s ease-in 1s infinite;
+-o-animation: searchLights 1s ease-in 1s infinite;
+animation: searchLights 1s ease-in 1s infinite;
+}
+@-webkit-keyframes searchLights {
+0% { left: -40px; top: 0; }
+to { left: 40px; top: 60px; }
+}
+@-o-keyframes searchLights {
+0% { left: -40px; top: 0; }
+to { left: 40px; top: 60px; }
+}
+@-moz-keyframes searchLights {
+0% { left: -40px; top: 0; }
+to { left: 40px; top: 60px; }
+}
+@keyframes searchLights {
+0% { left: -40px; top: 0; }
+to { left: 40px; top: 60px; }
+}
