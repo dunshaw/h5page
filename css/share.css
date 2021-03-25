@@ -4,7 +4,7 @@
 }
 .q-bigbox{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: url('../images/bg3.png') no-repeat;
     background-size: contain;
     overflow-y: scroll;
@@ -23,11 +23,13 @@
     width: 245px;
     /*height: 110px;*/
     margin: 20px auto 0;
+    margin: 80px auto 0;
 }
 .q-photo{
     width: 322px;
     /*height: 310px;*/
     margin: 25px auto 0;
+    margin: 100px auto 0;
 }
 .q-bottom{
     width: 100%;
@@ -71,6 +73,7 @@
     background: #4584d5;
     padding-bottom: 80px;
     padding-top: 10px;
+    display: none;
 }
 .content-item{
     width: 95%;
