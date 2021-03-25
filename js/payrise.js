@@ -10,7 +10,7 @@ if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp =''
 }else if(nowUrl=='download.jobpoolhr.com' || nowUrl == 'app.jobpoolhr.com'){
     imgIp = 'https://img.jobpoolhr.com/'
-    _URL = 'https://app.jobpoolhr.com'
+    _URL = 'https://app.jobpoolhr.com/'
     
 }else{
     imgIp ='https://imgtest.jobpoolhr.com/'
