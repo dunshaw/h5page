@@ -61,57 +61,57 @@ function detect(){
    return equipmentType;
 }
 
-$.ajax({
-    url:  '/api/job/findRandomJobs',
-    type: 'get',
-    success: function (res) {
-      console.log(res)
-      $('.content').empty()
-      let data = res.body;
-      for (let i = 0; i < data.length; i++) {
-          let _div = $('<div class="content-item" onclick="itemclick()"></div>')
-          _div.html(`<div class="content-item-left">
-                    <div class="content-item-left-top">
-                        <div class='imgdiv'><img src="${imgIp +data[i].logoPath}" alt=""></div>
-                        <div class='jobnamediv'>
-                            <h3>${data[i].jobName}</h3>
-                            <p>${data[i].companyName}</p>
-                        </div>
-                    </div>
-                    <div class="content-item-left-bottom">
-                    </div>
-                    <div class="content-item-reward-bottom">
-                    </div>
-                </div>
-                <div class="content-item-right">
-                    <h3>${(data[i].salaryMin / 1000).toFixed(1)}K-${(data[i].salaryMax / 1000).toFixed(1)}k</h3>
-                </div>`)
-          if (data[i].labels != null) {
-                data[i].labels = data[i].labels.split(",");
-            } else {
-                data[i].labels = [];
-            }
-          if (data[i].labels) {
-            if (data[i].labels.length > 3) {
-              data[i].labels = data[i].labels.slice(0, 3)
-            }
-            for (let j = 0; j < data[i].labels.length; j++) {
-              _div.find('.content-item-left-bottom').append(`<span class="q-position-label">${data[i].labels[j]}</span>`)
-            }
-          }
-          if (data[i].maleReward && data[i].recommendReward) {
-            _div.find('.content-item-reward-bottom').append(`<div class="m_reward">男奖${data[i].maleReward}</div>`)
-          }
-          if (data[i].femaleReward && data[i].recommendReward) {
-            _div.find('.content-item-reward-bottom').append(`<div class="w_reward">女奖${data[i].femaleReward}</div>`)
-          }
-          if (data[i].recommendedAwardNew && data[i].recommendAmount) {
-            _div.find('.content-item-reward-bottom').append(`<div class="r_reward">推荐${data[i].recommendAmount}</div>`)
-          }
-          $('.content').append(_div)
-      }
-    }
-  })
+// $.ajax({
+//   url:  '/api/job/findRandomJobs',
+//   type: 'get',
+//   success: function (res) {
+//     console.log(res)
+//     $('.content').empty()
+//     let data = res.body;
+//     for (let i = 0; i < data.length; i++) {
+//         let _div = $('<div class="content-item" onclick="itemclick()"></div>')
+//         _div.html(`<div class="content-item-left">
+//                   <div class="content-item-left-top">
+//                       <div class='imgdiv'><img src="${imgIp +data[i].logoPath}" alt=""></div>
+//                       <div class='jobnamediv'>
+//                           <h3>${data[i].jobName}</h3>
+//                           <p>${data[i].companyName}</p>
+//                       </div>
+//                   </div>
+//                   <div class="content-item-left-bottom">
+//                   </div>
+//                   <div class="content-item-reward-bottom">
+//                   </div>
+//               </div>
+//               <div class="content-item-right">
+//                   <h3>${(data[i].salaryMin / 1000).toFixed(1)}K-${(data[i].salaryMax / 1000).toFixed(1)}k</h3>
+//               </div>`)
+//         if (data[i].labels != null) {
+//               data[i].labels = data[i].labels.split(",");
+//           } else {
+//               data[i].labels = [];
+//           }
+//         if (data[i].labels) {
+//           if (data[i].labels.length > 3) {
+//             data[i].labels = data[i].labels.slice(0, 3)
+//           }
+//           for (let j = 0; j < data[i].labels.length; j++) {
+//             _div.find('.content-item-left-bottom').append(`<span class="q-position-label">${data[i].labels[j]}</span>`)
+//           }
+//         }
+//         if (data[i].maleReward && data[i].recommendReward) {
+//           _div.find('.content-item-reward-bottom').append(`<div class="m_reward">男奖${data[i].maleReward}</div>`)
+//         }
+//         if (data[i].femaleReward && data[i].recommendReward) {
+//           _div.find('.content-item-reward-bottom').append(`<div class="w_reward">女奖${data[i].femaleReward}</div>`)
+//         }
+//         if (data[i].recommendedAwardNew && data[i].recommendAmount) {
+//           _div.find('.content-item-reward-bottom').append(`<div class="r_reward">推荐${data[i].recommendAmount}</div>`)
+//         }
+//         $('.content').append(_div)
+//     }
+//   }
+// })
 
 
 $('.q-bottom button').click(function () {
