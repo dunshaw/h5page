@@ -15,7 +15,8 @@
   width: 240px;
   height: 50px;
   background: #FFD41D;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 4px 25px 0px #FFFCEE;
+  border:none;
+  /*box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 4px 25px 0px #FFFCEE;*/
   border-radius: 20px;
   font-size: 18px;
   font-family: PingFangSC-Medium, PingFang SC;
@@ -48,4 +49,14 @@
   top: 100px;
   left: 0;right: 0;
   margin: 0 auto;
+}
+.tishibox{
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+  margin: 50% auto;
+  border-radius: 5%;
+  border: 1px dashed #fff;
+  color: #fff;
+  font-size: 14px; 
 }

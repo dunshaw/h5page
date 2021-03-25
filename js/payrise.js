@@ -12,12 +12,45 @@ function getRem(prem,pwidth){
 }
 
 let aAndI = detect();
+var ua = navigator.userAgent.toLowerCase();
+
 if (aAndI == 'android') {
-  console.log('android')
-  if(isWeixin()){
-    $('.wxmodel').css('display','block');
+  if(ua.match(/MicroMessenger/i)=="micromessenger") {
+    //ios的ua中无miniProgram，但都有MicroMessenger（表示是微信浏览器）
+    wx.miniProgram.getEnv((res)=>{
+       if (res.miniprogram) {
+            $('.xiazaibtn').css('display','none');
+            $('.fuzhibtn').css('display','block');
+       }else{
+          $('.wxmodel').css('display','block');
+       }
+    })
+  }else{
+      console.log('不在微信里');
+      $('.xiazaibtn').css('display','block');
+      $('.fuzhibtn').css('display','none');
   }
 }
+
+
+if(ua.match(/MicroMessenger/i)=="micromessenger") {
+  //ios的ua中无miniProgram，但都有MicroMessenger（表示是微信浏览器）
+  wx.miniProgram.getEnv((res)=>{
+     if (res.miniprogram) {
+          $('.xiazaibtn').css('display','none');
+          $('.fuzhibtn').css('display','block');
+          $('.wxmodel').css('display','none');
+     }
+  })
+}else{
+    console.log('不在微信里');
+    $('.xiazaibtn').css('display','block');
+    $('.fuzhibtn').css('display','none');
+}
+
+
+
+
 
 var myDate = new Date();
 var nowHour = myDate.getHours(); //获取当前小时数(0-23)
@@ -39,7 +72,7 @@ function detect(){
 }
 
 
-$('.btnBox').click(function () {
+$('.xiazaibtn').click(function () {
   let aAndI = detect()
   console.log(aAndI)
   if(aAndI =='ios'){
@@ -66,6 +99,21 @@ function isWeixin () {
   return false 
 }
 
+function isWechat(){
+  if(navigator.userAgent.toLowerCase().indexOf('miniprogram') != -1){
+    console.log("小程序");
+    return true
+  }
+  return false
+}
 
-
+$('#codeBtn').click(function() {
+  var input = document.createElement("input");
+  input.value = 'https://apptest.jobpoolhr.com/h5/page/payrise.html';
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+  document.body.removeChild(input);
+  $('.fuzhitishi').css('display','block')
+});
 
