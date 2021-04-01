@@ -12,9 +12,9 @@ var scanCodeType = getQueryArgs().scanCodeType
 var nowHour = getQueryArgs().nowHour
 var type = getQueryArgs().type
 if(!type){
-    $('.hastype').hide()
+    $('.hastype').css('display','none');
 }else{
-    $('.noty').hide()
+    $('.notype').css('display','none');
 }
 const exp = /^1\d{10}$/;   //手机号正则
 let nowUrl = window.location.host;
@@ -29,8 +29,7 @@ if(nowUrl=='apptest.jobpoolhr.com'){
     imgIp =''
 }else if(nowUrl=='download.jobpoolhr.com' || nowUrl == 'app.jobpoolhr.com'){
     imgIp = 'https://img.jobpoolhr.com/'
-    _URL = 'https://app.jobpoolhr.com'
-    
+    _URL = 'https://app.jobpoolhr.com/'
 }else{
     imgIp ='https://imgtest.jobpoolhr.com/'
     _URL = 'https://apptest.jobpoolhr.com/'
