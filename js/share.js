@@ -116,6 +116,7 @@ function detect(){
 
 $('.q-bottom button').click(function () {
     if (exp.test($('.q-bottom input').val())) {
+        $('#xiazaibtn').attr("disabled",true).css('background-color','#ddd');
         $.ajax({
             url:  '/api/shareQrCode/save',
             type: 'post',
