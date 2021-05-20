@@ -1,0 +1,422 @@
+h2,h3,p,span,body{margin: 0;padding: 0;}
+.page{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.wxmodel{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.74);
+  position: fixed;
+  z-index: 1001;
+  display: none;
+}
+.zhishi{
+  width: 60px;
+  height: 84px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.yindaoyu{
+  width: 240px;
+  position:absolute; 
+  top: 100px;
+  left: 0;right: 0;
+  margin: 0 auto;
+}
+.titlebox{
+  width: 100%;
+  height: 10rem;
+  border-radius: 0 0 20% 20%;
+  position: relative;
+}
+.user-panel{
+  width: 90%;
+  height: 7.63rem;
+  background: #FFFFFF;
+  box-shadow: 0rem 0.07rem 0.45rem 0rem rgba(0, 0, 0, 0.08);
+  border-radius: 0.48rem;
+  position: absolute;
+  top: 3.5rem;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.user-panel-top{
+  width: 90%;
+  height: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.user-panel-topleft{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.portrait{
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+.user-panel-topleft-r{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  justify-content: space-around;
+  
+}
+.user-panel-topleft-r p{font-weight: bold;font-size: 1.13rem;}
+.user-panel-topleft-r span{font-size: .75rem;color: #999;}
+.user-panel-top h2{ margin-top: .5rem;}
+.user-panel-bot{
+  flex:1;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.panel-titps{
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+.yellow-btn{
+  background: linear-gradient(270deg, #FFD86C 0%, #FFBC01 100%);
+  border-radius: 0.9rem;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 12px;
+}
+.introduce{
+  background: #fff;
+  padding: 2.5rem 5%;
+}
+.linebox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+.introduce-item{
+  width: 48%;
+  position: relative;
+}
+.introduce-text{
+  margin-left: .5rem;
+  margin-top: .5rem;
+  align-items: flex-start;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: space-around;
+  
+}
+.introduce-text h2{
+  font-size: 1.13rem;
+  color: #444;
+}
+.introduce-text span{
+  font-size: .75rem;
+  color: #888888;
+}
+.introduce-bot{
+  width: 100%;
+}
+.introduce-bot-text{
+  position: absolute;
+  margin: 1rem 0.5rem;
+  
+}
+.introduce-bot-text h2{
+  font-size: 1.13rem;
+  color: #444;
+}
+.introduce-bot-text span{
+  font-size: .75rem;
+  color: #888888;
+}
+.introduceimg{
+  width: 100%;
+  height: 5rem;
+}
+.Dividing{
+  width: 100%;
+  height: 8px;
+  background: #F5F5F5;
+}
+.joblist{
+  width: 100%;
+  padding: 5px 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+.list-title{
+  padding: 0 5%;
+  font-size: 1.25rem;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #444;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  border-bottom: 1px solid #F0F0F0;
+}
+.list-title span{position: absolute;z-index: 2;}
+.yellow-line{
+  width: 4.56rem;
+  height: 0.2rem;
+  background: #FEDF60;
+  border-radius: 0.18rem;
+  position: absolute;
+  left: 4rem;
+  top: 1.7rem;
+}
+/* // 职位列表 */
+.mslist {
+  margin-top: 1rem;
+  background: #ebedf0;
+}
+.item {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 5%;
+}
+.num {
+  color: #2ea7e0;
+}
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info {
+  display: flex;
+  align-items: center;
+}
+.name {
+  margin-left: 10px;
+  height: 44px;
+}
+.title {
+  font-weight: 700;
+  color: #333333;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  
+}
+.van-icon-fire {
+  color: #ff4c4c;
+}
+.pu {
+  font-size: 12px;
+  padding: 2px;
+  background-color: #ffba15;
+  color: #fff;
+}
+.subtitle {
+  font-size: 14px;
+  color: #333333;
+}
+.xz {
+  display: flex;
+  flex-direction: column;
+  color: #ff961e;
+  font-weight: 700;
+  /* width: 66px; */
+  height: 44px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: flex-end;
+}
+.typespan{
+  font-size: 12px;
+  display: block;
+  border: 1px solid #70CC70;
+  color: #70CC70;
+  font-size: 12px;
+  width: 70px;
+  padding: 2px 1px;
+  border-radius: 4px;
+  margin: 3px 0;
+}
+.need {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #666666;
+  font-size: 12px;
+}
+.fl {
+  margin-right: 10px;
+  border-radius: 4px;
+  padding: 6px;
+  margin-top: 8px;
+}
+.time {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+}
+.van-skeleton{
+  background: #fff;
+  padding: 18px 15px 15px 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.botbox{
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  background:#2CA7E0;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 1.19rem;
+  font-weight: 600;
+  z-index: 10;
+  display: none;
+  text-align: center;
+}
+.botimg{
+  position: absolute;
+  width: 3.75rem;
+  height: 1.25rem;
+  right: 22%;
+  top: 1.3rem;
+}
+.vipimg{
+  width:1.69rem;
+  height: 1rem;
+}
+.ordinarycolor{
+  background: linear-gradient(225deg, #A0F5FF 0%, #35B1E2 100%);
+}
+.vipcolor{
+  background: linear-gradient(225deg, #575757 0%, #585858 100%, #585858 100%);
+}
+.ordinarycolor2{
+  background: #fff;
+}
+.vipcolor2{
+  background: #FFED9E;
+}
+.tuijianspan{
+  border-radius: 3px;
+  color: #FF961E;
+  font-size: 12px;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-right: 10px;
+}
+.shouyelabelbox {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.less {
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent #FFE7E7;
+    border-width: 10px 0 10px 7px;
+    top: 0;
+    display: block;
+    position: relative;
+    z-index: 3;
+    transform: rotateY(180deg);
+}
+.shouyelabel {
+    text-align: center;
+    background: #FFE7E7;
+    vertical-align: middle;
+    z-index: 1;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FF3535;
+    font-size: 10px;
+    width: 67px;
+    height: 25px;
+    line-height: 25px;
+}
+.ifshow1,.ifshow2,.hasnoavatar{display: none;}
+.companylogo{
+  width: 44px;
+  height:44px
+}
+.q-position-label{
+  background:rgba(248,248,248,1);
+  border-radius:2px;
+  font-size:12px;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:20px;
+  margin-right:3px;
+  padding: 2px;
+}
+.dividerline{
+  width: 100%;
+  height: 1px;
+  margin: 16px 0;
+  line-height: 24px;
+  background-color: #ebedf0;
+}
+.tuijian{
+  display: inline-block;
+  border: 1px solid #FF961E;
+  border-radius: 3px;
+  color: #FF961E;
+  font-size: 12px;
+  padding: 5px 8px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  margin-right: 10px;
+}
+.companypgbox{
+  text-align: right;
+}
+.companypg{
+  width: 16px;
+  height: 16px;
+  margin: 0 1px;
+}
+.companypg2{
+  width: 28px;
+  height: 16px;
+  margin: 0 1px;
+}
+.tipsbox{
+  width: 50%;
+  position: fixed;
+  top: 40%;
+  height: 5rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .7);
+  text-align: center;
+  z-index: 10;
+  color: #fff;
+  line-height: 5rem;
+  left: 25%;
+  letter-spacing: 2px;
+  display: none;
+}
+.q-position-fl{
+  margin: 2px 0;
+}
