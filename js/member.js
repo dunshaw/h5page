@@ -111,7 +111,7 @@ function getlist(){
         if(pageNum == 1){
           $('.mslist').empty()
         }
-        if(res.body.records && res.body.length == 10){
+        if(res.body.records && res.body.records.length == 10){
           loading = false
         }
         for (let item of res.body.records) {
