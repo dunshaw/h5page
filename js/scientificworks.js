@@ -81,7 +81,7 @@ function AndroidConsole(id,type){
 function wechatJump(id,type){
 	let url;
 	if(type == 'job'){
-		url=`/pages/recruitDetail/recruitDetail?id=${id}`
+		url=`/packageA/pages/recruitDetail/recruitDetail?id=${id}`
 	}else{
 		url=`/pages/companyInfo/companyInfo?id=${id}`
 	}
