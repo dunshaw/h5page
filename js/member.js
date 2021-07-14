@@ -16,16 +16,21 @@ if(nowUrl=='apptest.jobpoolhr.com'){
   _URL = 'https://apptest.jobpoolhr.com/'
 }
 
-var _model =''
-if(navigator.userAgent.toLowerCase().indexOf('miniprogram') != -1){
-  console.log("微信小程序");
-  _model = 1
-} else if (navigator.userAgent.toLowerCase().indexOf('micromessenger') != -1){
-    console.log("微信内置浏览器");
-    _model = 0
+var _model = 0;
+let aAndI = detect();
+if(ua.match(/MicroMessenger/i)=="micromessenger") {
+    //ios的ua中无miniProgram，但都有MicroMessenger（表示是微信浏览器）
+    wx.miniProgram.getEnv((res)=>{
+       if (res.miniprogram) {   // 小程序
+           _model = 1
+       }
+    })
 }else{
+    console.log('不在微信里');
   _model = 2
 }
+
+
 
 // 判断手机类型
 function detect() {
@@ -285,7 +290,7 @@ function gotodetails(id){
   let aAndI = detect()
   if(_model == 1){
     wx.miniProgram.navigateTo({
-      url:`../recruitDetail/recruitDetail?id=${id}&interviewTime=${today}&cityCode=510100`,//跳转回小程序的页面
+      url:`../../packageA/pages/recruitDetail/recruitDetail?id=${id}&interviewTime=${today}&cityCode=510100`,//跳转回小程序的页面
       success: function(){
         console.log('success')
       },
