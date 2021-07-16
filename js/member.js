@@ -285,7 +285,7 @@ function gotodetails(id){
   let aAndI = detect()
   if(_model == 1){
     wx.miniProgram.navigateTo({
-      url:`../recruitDetail/recruitDetail?id=${id}&interviewTime=${today}&cityCode=510100`,//跳转回小程序的页面
+      url:`../../packageA/pages/recruitDetail/recruitDetail?id=${id}&interviewTime=${today}&cityCode=510100`,//跳转回小程序的页面
       success: function(){
         console.log('success')
       },
