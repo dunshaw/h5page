@@ -40,7 +40,10 @@
       var interviewTime = getQueryArgs().interviewTime;
       var relationId = getQueryArgs().relationId
       var companyId = getQueryArgs().companyId?getQueryArgs().companyId:''
-
+      var applyid = getQueryArgs().applyId?getQueryArgs().applyId:''
+      var userrosterid = getQueryArgs().userRosterId?getQueryArgs().userRosterId:''
+      var idCard = getQueryArgs().idCard?getQueryArgs().idCard:''
+      var pageType = getQueryArgs().pageType?getQueryArgs().pageType:''
       function docReady(fn) {
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
           fn()
@@ -71,7 +74,11 @@
           containerEl.classList.add('full', 'wechat-web-container')
 
           var launchBtn = document.getElementById('launch-btn')
-          var mypath = `/packageA/pages/selfServiceCheck/selfServiceCheck?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}`
+          if(pageType == 'completeEntry'){
+            var mypath = `/packageA/pages/entryMsg/entryMsg?info=yes&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}`
+          }else{
+            var mypath = `/packageA/pages/selfServiceCheck/selfServiceCheck?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&pageType=${pageType}`
+          }
           launchBtn.setAttribute('path',mypath)
           launchBtn.addEventListener('ready', function (e) {
             console.log('开放标签 ready')
@@ -105,7 +112,7 @@
           containerEl.classList.remove('hidden')
           containerEl.classList.add('full', 'desktop-web-container')
         } else {
-          window.location.href=`https://jump-applet-4gpzqop9f55169a3-1309224656.tcloudbaseapp.com/index.html?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}`
+          window.location.href=`https://jump-applet-4gpzqop9f55169a3-1309224656.tcloudbaseapp.com/index.html?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}`
         }
       })
 
