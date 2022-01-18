@@ -1,127 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- <meta content="yes" name="apple-mobile-web-app-capable"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/share.css">
-    <title>职池工作</title>
-</head>
-<body>
-    <div class="wxmodel">
-        <img src="../images/zhishi.png" alt="" class="zhishi">
-        <img src="../images/引导语.png" alt="" class="yindaoyu">
-    </div>
-    <div id="tishibox">
-        <div>
-            <p>请填写正确的手机号，并点击下载</p>
-            <span onclick="itemclick()">知道了</span>
-        </div>
-    </div>
-    <div class="q-bigbox">
-        <div class="q-top-logo">
-            <img src="../images/logo2.png" alt="">
-        </div>
-        <div class="q-top-title">
-            <img src="../images/title4.png" alt="">
-        </div>
-        <div class="q-photo">
-            <img src="../images/buzhou.png" alt="">
-        </div>
-        <div class="content">
-            <div class="content-item" data-id='1'>
-                <div class="content-item-left">
-                    <div class="content-item-left-top">
-                        <div><img src="../images/Recommededprizes.png" alt=""></div>
-                        <div>
-                            <h3>线束组装工人</h3>
-                            <p>宝航集团</p>
-                        </div>
-                    </div>
-                    <div class="content-item-left-bottom">
-                        <span class="q-position-label">五险一金</span>
-                        <span class="q-position-label">五险二金</span>
-                    </div>
-                </div>
-                <div class="content-item-right">
-                    <h3>4.0k~6.0k</h3>
-                    <div class='w_reward'>女奖30</div>
-                    <div class='m_reward'>男奖400</div>
-                    <div class='r_reward'>推荐500</div>
-                </div>
-            </div>
-            <div class="content-item" data-id='2'>
-                <div class="content-item-left">
-                    <div class="content-item-left-top">
-                        <div><img src="../images/Recommededprizes.png" alt=""></div>
-                        <div>
-                            <h3>线束组装工人</h3>
-                            <p>宝航集团</p>
-                        </div>
-                    </div>
-                    <div class="content-item-left-bottom">
-                        <span class="q-position-label">五险一金</span>
-                        <span class="q-position-label">五险二金</span>
-                    </div>
-                </div>
-                <div class="content-item-right">
-                    <h3>4.0k~6.0k</h3>
-                    <div class='w_reward'>女奖30</div>
-                    <div class='m_reward'>男奖400</div>
-                    <div class='r_reward'>推荐500</div>
-                </div>
-            </div>
-            <div class="content-item" data-id='3'>
-                <div class="content-item-left">
-                    <div class="content-item-left-top">
-                        <div><img src="../images/Recommededprizes.png" alt=""></div>
-                        <div>
-                            <h3>线束组装工人</h3>
-                            <p>宝航集团</p>
-                        </div>
-                    </div>
-                    <div class="content-item-left-bottom">
-                        <span class="q-position-label">五险一金</span>
-                        <span class="q-position-label">五险二金</span>
-                    </div>
-                </div>
-                <div class="content-item-right">
-                    <h3>4.0k~6.0k</h3>
-                    <div class='w_reward'>女奖30</div>
-                    <div class='m_reward'>男奖400</div>
-                    <div class='r_reward'>推荐500</div>
-                </div>
-            </div>
-            <div class="content-item" data-id='4'>
-                <div class="content-item-left">
-                    <div class="content-item-left-top">
-                        <div><img src="../images/Recommededprizes.png" alt=""></div>
-                        <div>
-                            <h3>线束组装工人</h3>
-                            <p>宝航集团</p>
-                        </div>
-                    </div>
-                    <div class="content-item-left-bottom">
-                        <span class="q-position-label">五险一金</span>
-                        <span class="q-position-label">五险二金</span>
-                    </div>
-                </div>
-                <div class="content-item-right">
-                    <h3>4.0k~6.0k</h3>
-                    <div class='w_reward'>女奖30</div>
-                    <div class='m_reward'>男奖400</div>
-                    <div class='r_reward'>推荐500</div>
-                </div>
-            </div>
-        </div>
+<html>
+  <head>
+    <title>职池小程序</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <script>
+      window.onerror = e => {
+        console.error(e)
+        alert('发生错误' + e)
+      }
+    </script>
+    <!-- weui 样式 -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.4.1/weui.min.css"></link>
+    <!-- 调试用的移动端 console -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <!-- 公众号 JSSDK -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <!-- 云开发 Web SDK -->
+    <script src="https://res.wx.qq.com/open/js/cloudbase/1.1.0/cloud.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+      var nowUrl = window.location.host;
+      var imgIp;
+      var _URL;
+      console.log(nowUrl)
+      if(nowUrl=='apptest.jobpoolhr.com'){
+          imgIp ='https://imgtest.jobpoolhr.com/'
+          _URL = 'https://apptest.jobpoolhr.com'
+      }else{
+          imgIp ='https://imgtest.jobpoolhr.com/'
+          _URL = 'https://apptest.jobpoolhr.com'
+      }
+      const jsApiList = [
+        'updateAppMessageShareData',
+        'updateTimelineShareData',
+        'chooseImage', 'previewImage'
+      ]
+      var jobId = getQueryArgs().id;
+      var interviewTime = getQueryArgs().interviewTime;
+      var relationId = getQueryArgs().relationId
+      var companyId = getQueryArgs().companyId?getQueryArgs().companyId:''
 
-        <div class="q-bottom">
-            <input type="text" placeholder="请输入手机号下载APP立即投递职位" style="text-align:center" maxlength="11">
-            <button id="xiazaibtn">下载</button>
-        </div>
+      function docReady(fn) {
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          fn()
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
+
+      docReady(async function() {
+        var ua = navigator.userAgent.toLowerCase()
+        var isWXWork = ua.match(/wxwork/i) == 'wxwork'
+        var isWeixin = !isWXWork && ua.match(/MicroMessenger/i) == 'micromessenger'
+        var isMobile = false
+        var isDesktop = false
+        if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|IEMobile)/i)) {
+          isMobile = true
+        } else {
+          isDesktop = true
+        }
+        console.warn('ua', ua)
+        console.warn(ua.match(/MicroMessenger/i) == 'micromessenger')
+        var m = ua.match(/MicroMessenger/i)
+        console.warn(m && m[0] === 'micromessenger')
+
+        if (isWeixin) {
+          var containerEl = document.getElementById('wechat-web-container')
+          containerEl.classList.remove('hidden')
+          containerEl.classList.add('full', 'wechat-web-container')
+
+          var launchBtn = document.getElementById('launch-btn')
+          var mypath = `/packageA/pages/selfServiceCheck/selfServiceCheck?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}`
+          launchBtn.setAttribute('path',mypath)
+          launchBtn.addEventListener('ready', function (e) {
+            console.log('开放标签 ready')
+          })
+          launchBtn.addEventListener('launch', function (e) {
+            console.log('开放标签 success')
+          })
+          launchBtn.addEventListener('error', function (e) {
+            console.log('开放标签 fail', e.detail)
+          })
+          var url = location.href.split('#')[0];
+          
+          $.ajax({
+            url: `${_URL}/api/weChat/getSignatureConfig?url=${encodeURIComponent(url)}`,
+            type: 'post',
+            async: false,
+            success:function(result){
+              wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: 'wxcacde8e1eb49c6bc', // 必填，公众号的唯一标识
+                timestamp: result.body.timestamp, // 必填，生成签名的时间戳
+                nonceStr: result.body.noncestr, // 必填，生成签名的随机串
+                signature: result.body.signature,// 必填，签名
+                jsApiList: jsApiList, // 必填，需要使用的JS接口列表
+                openTagList: ['wx-open-launch-weapp'] // 可选，需要使用的开放标签列表
+              });
+          }});
+        } else if (isDesktop) {
+          // 在 pc 上则给提示引导到手机端打开
+          var containerEl = document.getElementById('desktop-web-container')
+          containerEl.classList.remove('hidden')
+          containerEl.classList.add('full', 'desktop-web-container')
+        } else {
+          window.location.href=`https://jump-applet-4gpzqop9f55169a3-1309224656.tcloudbaseapp.com/index.html?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}`
+        }
+      })
+
+      async function openWeapp(onBeforeJump) {
+        var c = window.c
+        const res = await c.callFunction({
+          name: 'public',
+          data: {
+            action: 'getUrlScheme',
+          },
+        })
+        console.warn(res)
+        if (onBeforeJump) {
+          onBeforeJump()
+        }
+        location.href = res.result.openlink
+      }
+
+      function getQueryArgs() {
+          var url = location.search;
+          var qs = (url.length > 0 ? url.substring(url.indexOf('?')).substr(1) : ''),
+            //保存每一项
+            args = {},
+            //得到每一项
+            items = qs.length ? qs.split('&') : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+
+          for (i = 0; i < len; i++) {
+            item = items[i].split('='),
+              name = decodeURIComponent(item[0])
+            value = decodeURIComponent(item[1])
+            if (name.length) {
+              args[name] = value;
+            }
+          }
+          return args;
+      }
+    </script>
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .full {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .public-web-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .public-web-container p {
+        position: absolute;
+        top: 40%;
+      }
+
+      .public-web-container a {
+        position: absolute;
+        bottom: 40%;
+      }
+
+      .wechat-web-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .wechat-web-container p {
+        position: absolute;
+        top: 40%;
+      }
+
+      .wechat-web-container wx-open-launch-weapp {
+        position: absolute;
+        bottom: 40%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .desktop-web-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .desktop-web-container p {
+        position: absolute;
+        top: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page full">
+      <div id="public-web-container" class="hidden">
+        <p class="">正在打开 “职池小程序”...</p>
+        <a id="public-web-jump-button" href="javascript:" class="weui-btn weui-btn_primary weui-btn_loading" onclick="openWeapp()">
+          <span id="public-web-jump-button-loading" class="weui-primary-loading weui-primary-loading_transparent"><i class="weui-primary-loading__dot"></i></span>
+          打开小程序
+        </a>
+      </div>
+      <div id="wechat-web-container" class="hidden">
+        <p class="">点击以下按钮打开 “职池小程序”</p>
+        <!-- 跳转小程序的开放标签。文档 https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html -->
+        <wx-open-launch-weapp id="launch-btn" username="gh_ddcf60ceb88d">
+          <template>
+            <button style="width: 200px; height: 45px; text-align: center; font-size: 17px; display: block; margin: 0 auto; padding: 8px 24px; border: none; border-radius: 4px; background-color: #07c160; color:#fff;">打开小程序</button>
+          </template>
+        </wx-open-launch-weapp>
+      </div>
+      <div id="desktop-web-container" class="hidden">
+        <p class="">请在手机打开网页链接</p>
+      </div>
     </div>
-</body>
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/share.js"></script>
+  </body>
 </html>
