@@ -69,6 +69,8 @@
         console.warn(m && m[0] === 'micromessenger')
 
         if (isWeixin) {
+          window.location.href=`https://jump-applet-4gpzqop9f55169a3-1309224656.tcloudbaseapp.com/index.html?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}&pageType=${pageType}`
+          return
           var containerEl = document.getElementById('wechat-web-container')
           containerEl.classList.remove('hidden')
           containerEl.classList.add('full', 'wechat-web-container')
