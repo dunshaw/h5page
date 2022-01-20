@@ -70,44 +70,44 @@
 
         if (isWeixin) {
           window.location.href=`https://jump-applet-4gpzqop9f55169a3-1309224656.tcloudbaseapp.com/index.html?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}&pageType=${pageType}&info=yes`
-          return
-          var containerEl = document.getElementById('wechat-web-container')
-          containerEl.classList.remove('hidden')
-          containerEl.classList.add('full', 'wechat-web-container')
+          // return
+          // var containerEl = document.getElementById('wechat-web-container')
+          // containerEl.classList.remove('hidden')
+          // containerEl.classList.add('full', 'wechat-web-container')
 
-          var launchBtn = document.getElementById('launch-btn')
-          if(pageType == 'completeEntry'){
-            var mypath = `/packageA/pages/entryMsg/entryMsg?info=yes&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}`
-          }else{
-            var mypath = `/packageA/pages/selfServiceCheck/selfServiceCheck?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&pageType=${pageType}`
-          }
-          launchBtn.setAttribute('path',mypath)
-          launchBtn.addEventListener('ready', function (e) {
-            console.log('开放标签 ready')
-          })
-          launchBtn.addEventListener('launch', function (e) {
-            console.log('开放标签 success')
-          })
-          launchBtn.addEventListener('error', function (e) {
-            console.log('开放标签 fail', e.detail)
-          })
-          var url = location.href.split('#')[0];
+          // var launchBtn = document.getElementById('launch-btn')
+          // if(pageType == 'completeEntry'){
+          //   var mypath = `/packageA/pages/entryMsg/entryMsg?info=yes&applyid=${applyid}&userRosterId=${userrosterid}&idCard=${idCard}`
+          // }else{
+          //   var mypath = `/packageA/pages/selfServiceCheck/selfServiceCheck?jobid=${jobId}&companyid=${companyId}&relationid=${relationId}&interviewTime=${interviewTime}&pageType=${pageType}`
+          // }
+          // launchBtn.setAttribute('path',mypath)
+          // launchBtn.addEventListener('ready', function (e) {
+          //   console.log('开放标签 ready')
+          // })
+          // launchBtn.addEventListener('launch', function (e) {
+          //   console.log('开放标签 success')
+          // })
+          // launchBtn.addEventListener('error', function (e) {
+          //   console.log('开放标签 fail', e.detail)
+          // })
+          // var url = location.href.split('#')[0];
           
-          $.ajax({
-            url: `${_URL}/api/weChat/getSignatureConfig?url=${encodeURIComponent(url)}`,
-            type: 'post',
-            async: false,
-            success:function(result){
-              wx.config({
-                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                appId: 'wxcacde8e1eb49c6bc', // 必填，公众号的唯一标识
-                timestamp: result.body.timestamp, // 必填，生成签名的时间戳
-                nonceStr: result.body.noncestr, // 必填，生成签名的随机串
-                signature: result.body.signature,// 必填，签名
-                jsApiList: jsApiList, // 必填，需要使用的JS接口列表
-                openTagList: ['wx-open-launch-weapp'] // 可选，需要使用的开放标签列表
-              });
-          }});
+          // $.ajax({
+          //   url: `${_URL}/api/weChat/getSignatureConfig?url=${encodeURIComponent(url)}`,
+          //   type: 'post',
+          //   async: false,
+          //   success:function(result){
+          //     wx.config({
+          //       debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+          //       appId: 'wxcacde8e1eb49c6bc', // 必填，公众号的唯一标识
+          //       timestamp: result.body.timestamp, // 必填，生成签名的时间戳
+          //       nonceStr: result.body.noncestr, // 必填，生成签名的随机串
+          //       signature: result.body.signature,// 必填，签名
+          //       jsApiList: jsApiList, // 必填，需要使用的JS接口列表
+          //       openTagList: ['wx-open-launch-weapp'] // 可选，需要使用的开放标签列表
+          //     });
+          // }});
         } else if (isDesktop) {
           // 在 pc 上则给提示引导到手机端打开
           var containerEl = document.getElementById('desktop-web-container')
